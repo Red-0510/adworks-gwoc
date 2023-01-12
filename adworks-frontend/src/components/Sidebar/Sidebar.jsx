@@ -1,7 +1,16 @@
 import React from 'react'
-import { Drawer ,useTheme} from '@mui/material'
+import { Drawer ,
+  useTheme,
+  Button, 
+  IconButton,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+} from '@mui/material'
 import {
-  ChevronLeftOutlined
+  ChevronLeftOutlined,
 } from "@mui/icons-material";
 
 
@@ -10,10 +19,6 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
   const theme=useTheme();
 
   const menuList=[
-    {
-      text:"Go Back",
-      icon:<ChevronLeftOutlined />
-    },
     {
       text:"Home",
       icon:""
@@ -54,7 +59,15 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
             }
           }}
         >
-          
+          <div className='user_info'>
+            <List>
+              <ListItem>
+                <IconButton onClick={()=>setIsSidebarOpen(false)}>
+                  <ChevronLeftOutlined />
+                </IconButton>
+              </ListItem>
+            </List>
+          </div>
         </Drawer>
       }
     </div>
