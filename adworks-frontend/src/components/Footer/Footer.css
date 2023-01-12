@@ -1,0 +1,11 @@
+.link_buttons{
+    display: flex;
+}
+
+.MuiButtonBase-root{
+    color:white;
+}
+
+.link a,.link a:visited{
+    color:white;
+}

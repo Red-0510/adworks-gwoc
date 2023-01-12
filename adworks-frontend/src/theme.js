@@ -2,50 +2,36 @@ import { textTransform } from "@mui/system";
 
 const themeDark = {
     neutral: {
-      main:"#a3a3a3",
-      light:"#525252",
-      0: "#ffffff",
-      10: "#f6f6f6", 
-      50: "#f0f0f0", 
-      100: "#e0e0e0",
-      200: "#c2c2c2",
-      300: "#a3a3a3",
-      400: "#858585",
-      500: "#666666",
-      600: "#525252",
-      700: "#3d3d3d",
-      800: "#292929",
-      900: "#141414",
-      1000: "#000000", // manually adjusted
+        // text
+      main:"#ffffff",
+      light:"#f0f6fc",
+      100: "#ffffff",
+      200: "#f0f6fc", 
+      300: "#f0f0f0",  // manually adjusted
     },
     primary: {
-        main:"#061321",
-        100: "#cdd1d4",
-        200: "#9ca3a9",
-        300: "#6a747f",
-        400: "#394654",
-        500: "#071829",
-        600: "#061321",
-        700: "#040e19",
-        800: "#030a10",
-        900: "#010508"
+        // Dark Blue
+        main:"#00264c",
+        100: "#00264c",
+        200: "#033b72",
+        300: "#66b2ff",
     },
     secondary: {
-      // yellow
-      main:"#cca752",
-      50: "#f0f0f0", // manually adjusted
-      100: "#fff6e0",
-      200: "#ffedc2",
-      300: "#ffe3a3",
-      400: "#ffda85",
-      500: "#ffd166",
-      600: "#cca752",
-      700: "#997d3d",
-      800: "#665429",
-      900: "#332a14",
+      // green
+      main:"#238636",
+      100: "#075606", // manually adjusted
+      200: "#02b100",
+      300: "#00dd30",
+    },
+    ternary: {
+        //black
+        main: "#000000",
+        100: "000000",
+        200: "#080707",
+        300:"#0e0b0b",
     },
     background:{
-        default:"#394654",
+        default:"#161b22",
         alt:"#9ca3a9",
     }
 };

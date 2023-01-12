@@ -2,10 +2,12 @@
     width:100%;
     display:flex;
     align-items: center;
+    justify-content: space-between;
 }
 
 .logo{
-    height:32px;
-    width:32px;
+    height:40px;
+    width:40px;
     object-fit: cover;
+    border-radius: 50%;
 }
