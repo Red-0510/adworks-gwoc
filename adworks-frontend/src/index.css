@@ -3,3 +3,7 @@ html,body,.app,#root{
   width: 100%;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
+
+*{
+  text-transform: none;
+}
