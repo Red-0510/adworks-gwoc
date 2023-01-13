@@ -32,7 +32,7 @@ const themeDark = {
     },
     background:{
         default:"#161b22",
-        alt:"#9ca3a9",
+        alt:"#2d323a",
     }
 };
 

@@ -1,5 +1,4 @@
 import React from 'react'
-// import { IconButton ,Divider,Chip} from '@mui/material'
 import { Drawer ,
   useTheme,
   Button, 
@@ -15,10 +14,15 @@ import { Drawer ,
 import {
   ChevronLeftOutlined,
   HomeOutlined,
+  GroupSharp,
+  ContactPageSharp,
+  MiscellaneousServicesOutlined,
+  CurrencyRupeeOutlined,
+  GradeOutlined,
 } from "@mui/icons-material";
 import MyButton from "components/MyButton/MyButton";
-
 import "./Sidebar.css";
+// import CurrencyRupeeOutlinedIcon from '@mui/icons-material/CurrencyRupeeOutlined';
 const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
 
   const theme=useTheme();
@@ -29,25 +33,24 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
     },
     {
       text:"Services",
-      icon:<HomeOutlined />
+      icon:<MiscellaneousServicesOutlined />
     },{
       text:"Our work",
-      icon:<HomeOutlined />
+      icon:<GradeOutlined />
     },{
       text:"Pricing",
-      icon:<HomeOutlined />
+      icon:<CurrencyRupeeOutlined />
     },{
       text:"Our Team",
-      icon:<HomeOutlined/>
+      icon:<GroupSharp/>
     },{
       text:"Contact",
-      icon:<HomeOutlined />
+      icon:<ContactPageSharp />
     },
   ]
 
   return (
-    <div className='sidebar'>
-      {isSidebarOpen && 
+    <div className="sidebar">
         <Drawer
           open={isSidebarOpen}
           onClose={()=>setIsSidebarOpen(false)}
@@ -59,7 +62,7 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
               color:theme.palette.secondary[100],
               backgroundColor:theme.palette.background.alt,
               boxSizing:"border-box",
-              width:"60%",
+              width:"230px",
             }
           }}
         >
@@ -95,7 +98,6 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
             </List>
           </div>
         </Drawer>
-      }
     </div>
   )
 }

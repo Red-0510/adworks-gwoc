@@ -13,8 +13,18 @@ import MyButton from 'components/MyButton/MyButton';
 
 import logo from "assets/images/logo192.png";
 import profile from "assets/images/profile.png"
-const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
+const Navbar = ({isSidebarOpen,setIsSidebarOpen,mode,setMode}) => {
     const theme=useTheme();
+
+    function Changetheme(){
+      if(theme.palette.mode==="dark"){
+        setMode("light");
+      }
+      else{
+        setMode("dark");
+      }
+    }
+
   return (
     <div className='navbar'>
       <IconButton onClick={()=>setIsSidebarOpen(!isSidebarOpen)}>
@@ -32,7 +42,7 @@ const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
         </Typography>
       </Button>
       <div className='info'>
-        <IconButton>
+        <IconButton onClick={Changetheme}>
           {
             (theme.palette.mode==="dark") 
              ? <DarkModeOutlined sx={{fontSize:"32px"}}/>

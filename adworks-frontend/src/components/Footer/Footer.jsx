@@ -6,6 +6,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
+import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
 
 import "./Footer.css";
 
@@ -19,6 +20,9 @@ const Footer = () => {
         </Divider>
             <p>SVNIT</p>
             <p>Surat</p>
+            <p style={{color:"#2879ff"}}>Get Directions <IconButton>
+            <Link to={{ pathname: "https://goo.gl/maps/gRVbesFmkq6Viygu8"} } target="_blank" > <ChevronRightRoundedIcon sx={{ color: "#2879ff" }} /></Link>
+            </IconButton> </p>
         </div>
         
         <div className='social_media'>
@@ -43,7 +47,7 @@ const Footer = () => {
             </div>
         <div className='active_time'>
         <Divider light>
-          <Chip label="CHIP" />
+          <Chip label="Timings......" />
         </Divider>
             <p>Time</p>
             <p>Days</p>

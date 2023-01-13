@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from "react"
+import React, { useState, useMemo, useEffect } from "react"
 import { BrowserRouter, Routes,Route, Navigate} from "react-router-dom";
 import { createTheme } from "@mui/material/styles";
 import { CssBaseline, ThemeProvider } from "@mui/material";
@@ -11,6 +11,7 @@ function App() {
 
   const [mode,setMode] = useState("dark");
   const theme = useMemo(()=>createTheme(themeSettings(mode)),[mode]);
+  
   console.log(theme);
   return (
     <div className="app">
@@ -18,7 +19,7 @@ function App() {
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Routes>
-            <Route element={<Layout />}>
+            <Route element={<Layout  setMode={setMode} />}>
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />}/>
             </Route>
