@@ -25,7 +25,7 @@ function App() {
               <Route path="/our-work" element={<Home />}/>
               <Route path="/pricing" element={<Home />}/>
               <Route path="/our-team" element={<Home />}/>
-              <Route path="/contact" element={<Home />}/>
+              {/* <Route path="/contact" element={<Home />}/> */}
             </Route>
           </Routes>
         </ThemeProvider>
