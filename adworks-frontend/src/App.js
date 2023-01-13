@@ -12,7 +12,6 @@ function App() {
   const [mode,setMode] = useState("dark");
   const theme = useMemo(()=>createTheme(themeSettings(mode)),[mode]);
   
-  console.log(theme);
   return (
     <div className="app">
       <BrowserRouter>
@@ -22,6 +21,11 @@ function App() {
             <Route element={<Layout  setMode={setMode} />}>
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />}/>
+              <Route path="/services" element={<Home />}/>
+              <Route path="/our-work" element={<Home />}/>
+              <Route path="/pricing" element={<Home />}/>
+              <Route path="/our-team" element={<Home />}/>
+              <Route path="/contact" element={<Home />}/>
             </Route>
           </Routes>
         </ThemeProvider>

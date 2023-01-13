@@ -11,22 +11,22 @@ const themeDark = {
     },
     primary: {
         // Dark Blue
-        main:"#00264c",
+        main:"#0d1a2c",
         100: "#00264c",
         200: "#033b72",
         300: "#66b2ff",
     },
     secondary: {
       // green
-      main:"#238636",
+      main:"#00a520",
       100: "#075606", // manually adjusted
       200: "#02b100",
       300: "#00dd30",
     },
     ternary: {
         //black
-        main: "#000000",
-        100: "000000",
+        main: "#ffd166",
+        100: "#555555",
         200: "#080707",
         300:"#0e0b0b",
     },
@@ -42,6 +42,7 @@ const themeLight={
     primary:themeDark.neutral,
     secondary:themeDark.secondary,
     neutral:themeDark.primary,
+    ternary:themeDark.ternary,
     background:{
         deafult:"#ffffff",
         alt:"#c2c2c2"

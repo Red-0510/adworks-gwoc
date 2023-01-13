@@ -1,4 +1,4 @@
-import React from 'react'
+import React,{useState,useEffect} from 'react'
 import { Drawer ,
   useTheme,
   Button, 
@@ -20,12 +20,13 @@ import {
   CurrencyRupeeOutlined,
   GradeOutlined,
 } from "@mui/icons-material";
+import { useLocation, useNavigate } from 'react-router-dom';
 import MyButton from "components/MyButton/MyButton";
 import "./Sidebar.css";
+import _ from "lodash";
 // import CurrencyRupeeOutlinedIcon from '@mui/icons-material/CurrencyRupeeOutlined';
 const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
 
-  const theme=useTheme();
   const menuList=[
     {
       text:"Home",
@@ -48,6 +49,16 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
       icon:<ContactPageSharp />
     },
   ]
+  const {pathname} = useLocation();
+  const [active,setActive] = useState("");
+  const theme=useTheme();
+  const navigate = useNavigate();
+  // UseEffects hooks
+  useEffect(()=>{
+    setActive(pathname.substring(1));
+    setIsSidebarOpen(false);
+  },[pathname]);
+
 
   return (
     <div className="sidebar">
@@ -60,7 +71,8 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
             width:"60%",
             "& .MuiDrawer-paper":{
               color:theme.palette.secondary[100],
-              backgroundColor:theme.palette.background.alt,
+              backgroundColor:"transparent",
+              boxShadow: `154px 0px 196px 50px black inset`,
               boxSizing:"border-box",
               width:"230px",
             }
@@ -80,17 +92,37 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
                 </div>
               </ListItem>
               {menuList.map(({text,icon})=>{
-                console.log(text,icon)
-                if(icon==="") return(
-                  <Typography key={text} >text</Typography> 
-                );
+                // if(icon==="") return( //to be used if want labels in Sidebar
+                //   <Typography key={text} >text</Typography> 
+                // );
+                const textLower=_.kebabCase(text);
                 return (
                   <ListItem key={text} disablePadding>
-                    <ListItemButton sx={{backgroundColor:"transparent",color:theme.palette.neutral.main}}>
+                    <ListItemButton 
+                      onClick={()=>{
+                        navigate(`/${textLower}`);
+                        setActive(textLower);
+                      }}
+                      sx={{
+                      backgroundColor:"transparent",
+                      color:(active === textLower
+                            ? theme.palette.neutral.main 
+                            : theme.palette.secondary.main
+                        ),
+                      boxShadow:( active===textLower
+                            ? `180px 0 90px -60px inset ${theme.palette.ternary.main} `
+                            : "none"
+                        ),  
+                      }}>
                       <ListItemIcon>
                         {icon}
                       </ListItemIcon>
-                      <ListItemText primary={text} />
+                      <Typography key={text} sx={{
+                        fontWeight:(textLower===active
+                            ? "bold"
+                            : "400"
+                          ),
+                      }}>{text}</Typography> 
                     </ListItemButton>
                   </ListItem>
                 );
