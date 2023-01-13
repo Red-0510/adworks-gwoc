@@ -16,15 +16,6 @@ import profile from "assets/images/profile.png"
 const Navbar = ({isSidebarOpen,setIsSidebarOpen,mode,setMode}) => {
     const theme=useTheme();
 
-    function Changetheme(){
-      if(theme.palette.mode==="dark"){
-        setMode("light");
-      }
-      else{
-        setMode("dark");
-      }
-    }
-
   return (
     <div className='navbar'>
       <IconButton onClick={()=>setIsSidebarOpen(!isSidebarOpen)}>
@@ -42,7 +33,10 @@ const Navbar = ({isSidebarOpen,setIsSidebarOpen,mode,setMode}) => {
         </Typography>
       </Button>
       <div className='info'>
-        <IconButton onClick={Changetheme}>
+        <IconButton onClick={()=>{
+          if(theme.palette.mode==="dark") setMode("light")
+          else setMode("dark");
+        }}>
           {
             (theme.palette.mode==="dark") 
              ? <DarkModeOutlined sx={{fontSize:"32px"}}/>
