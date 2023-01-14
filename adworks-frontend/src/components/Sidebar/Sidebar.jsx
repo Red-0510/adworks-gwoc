@@ -21,6 +21,7 @@ import {
   GradeOutlined,
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useLoginMutation } from 'state/api';
 import MyButton from "components/MyButton/MyButton";
 import "./Sidebar.css";
 import _ from "lodash";
@@ -48,7 +49,20 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
       text:"Contact",
       icon:<ContactPageSharp />
     },
-  ]
+  ];
+
+  //add this lines in Login component
+  // const [login,{data,isSuccess,isError,error}]=useLoginMutation();
+  
+  // const handlelogin = ()=>{
+  //   // handle the use
+  //   login({email,password});
+  // }
+
+  useEffect(()=>{
+    console.log("succesful logged in",data);
+  },[isSuccess])
+
   const {pathname} = useLocation();
   const [active,setActive] = useState("");
   const theme=useTheme();
@@ -58,8 +72,6 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
     setActive(pathname.substring(1));
     setIsSidebarOpen(false);
   },[pathname]);
-
-
   return (
     <div className="sidebar">
         <Drawer
@@ -87,8 +99,12 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
               </ListItem>
               <ListItem>
                 <div className="login">
-                  <MyButton  size="large" sx={{borderRadius:"10px"}}>Sign In</MyButton>
-                  <MyButton size="large"  sx={{borderRadius:"10px"}}>Login</MyButton>
+                  <MyButton  size="large" 
+                    onClick={handlelogin}
+                    sx={{borderRadius:"10px"}}>Sign In</MyButton>
+                  <MyButton size="large"  
+                    onClick={()=>navigate("/login")}
+                    sx={{borderRadius:"10px"}}>Login</MyButton>
                 </div>
               </ListItem>
               {menuList.map(({text,icon})=>{
