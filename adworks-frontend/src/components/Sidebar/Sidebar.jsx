@@ -23,6 +23,7 @@ import {
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLoginMutation } from 'state/api';
 import MyButton from "components/MyButton/MyButton";
+import Login from 'scenes/Login/Login';
 import "./Sidebar.css";
 import _ from "lodash";
 // import CurrencyRupeeOutlinedIcon from '@mui/icons-material/CurrencyRupeeOutlined';
@@ -52,12 +53,14 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
   ];
 
   //add this lines in Login component
-  // const [login,{data,isSuccess,isError,error}]=useLoginMutation();
+  const [login,{data,isSuccess,isError,error}]=useLoginMutation();
   
-  // const handlelogin = ()=>{
-  //   // handle the use
-  //   login({email,password});
-  // }
+  const handlelogin = ()=>{
+    // handle the use
+    const email="abcd@gmail.com";
+    const password = "abcd";
+    login({email,password});
+  }
 
   useEffect(()=>{
     console.log("succesful logged in",data);
@@ -67,6 +70,8 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
   const [active,setActive] = useState("");
   const theme=useTheme();
   const navigate = useNavigate();
+  const [loginOpen,setLoginOpen]=useState(false);
+  const [signUpOpen,setSignUpOpen]=useState(false);
   // UseEffects hooks
   useEffect(()=>{
     setActive(pathname.substring(1));
@@ -100,11 +105,15 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
               <ListItem>
                 <div className="login">
                   <MyButton  size="large" 
-                    onClick={handlelogin}
+                    onClick={()=>setLoginOpen(true)}
                     sx={{borderRadius:"10px"}}>Sign In</MyButton>
                   <MyButton size="large"  
-                    onClick={()=>navigate("/login")}
+                    onClick={()=>setSignUpOpen(true)}
                     sx={{borderRadius:"10px"}}>Login</MyButton>
+                  <div>
+                    <Login open={loginOpen} setOpen={setLoginOpen}/>
+                    <Login open={signUpOpen} setOpen={setSignUpOpen}/>
+                  </div>
                 </div>
               </ListItem>
               {menuList.map(({text,icon})=>{

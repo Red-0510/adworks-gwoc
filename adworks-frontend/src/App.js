@@ -8,6 +8,7 @@ import {useSelector,useDispatch} from "react-redux";
 import Layout from "scenes/Layout/Layout";
 import Login from "scenes/Login/Login";
 import Home from "components/Home/Home";
+import Contact from "scenes/Contact/Contact";
 import './App.css';
  
 
@@ -28,7 +29,7 @@ function App() {
               <Route path="/our-work" element={<Home />}/>
               <Route path="/pricing" element={<Home />}/>
               <Route path="/our-team" element={<Home />}/>
-              <Route path="/contact" element={<Home />}/>
+              <Route path="/contact" element={<Contact />}/>
             </Route>
             <Route path="/login" element={<Login />}/>
           </Routes>
