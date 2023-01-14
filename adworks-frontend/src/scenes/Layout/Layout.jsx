@@ -17,7 +17,6 @@ const Layout = (props) => {
         <Navbar 
           isSidebarOpen={isSidebarOpen}
           setIsSidebarOpen={setIsSidebarOpen}
-          setMode={props.setMode}
         />
         <Outlet />
         <Footer />

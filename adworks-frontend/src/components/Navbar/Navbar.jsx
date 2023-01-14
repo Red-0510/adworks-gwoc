@@ -6,16 +6,18 @@ import {Menu,
   SettingsOutlined,
   ImagesearchRoller
 } from "@mui/icons-material";
-
+// redux
+import {setMode} from "state/store"
+import {useDispatch} from "react-redux";
 
 import "./Navbar.css";
 import MyButton from 'components/MyButton/MyButton';
 
 import logo from "assets/images/logo192.png";
 import profile from "assets/images/profile.png"
-const Navbar = ({isSidebarOpen,setIsSidebarOpen,mode,setMode}) => {
-    const theme=useTheme();
-
+const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
+  const theme=useTheme();
+  const dispatch = useDispatch();
   return (
     <div className='navbar'>
       <IconButton onClick={()=>setIsSidebarOpen(!isSidebarOpen)}>
@@ -33,10 +35,7 @@ const Navbar = ({isSidebarOpen,setIsSidebarOpen,mode,setMode}) => {
         </Typography>
       </Button>
       <div className='info'>
-        <IconButton onClick={()=>{
-          if(theme.palette.mode==="dark") setMode("light")
-          else setMode("dark");
-        }}>
+        <IconButton onClick={()=>dispatch(setMode())}>
           {
             (theme.palette.mode==="dark") 
              ? <DarkModeOutlined sx={{fontSize:"32px"}}/>
