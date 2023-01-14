@@ -7,9 +7,8 @@ import { Drawer ,
   ListItem,
   ListItemButton,
   ListItemIcon,
-  ListItemText,
   Typography,
-  Divider
+  Avatar,
 } from '@mui/material'
 import {
   ChevronLeftOutlined,
@@ -19,13 +18,16 @@ import {
   MiscellaneousServicesOutlined,
   CurrencyRupeeOutlined,
   GradeOutlined,
+  EqualizerOutlined,
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLoginMutation } from 'state/api';
+import {useSelector} from "react-redux"
 import MyButton from "components/MyButton/MyButton";
 import Login from 'scenes/Login/Login';
 import "./Sidebar.css";
 import _ from "lodash";
+import MyFlexPaper from 'components/MyFlexPaper/MyFlexPaper';
 // import CurrencyRupeeOutlinedIcon from '@mui/icons-material/CurrencyRupeeOutlined';
 const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
 
@@ -65,7 +67,7 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
   useEffect(()=>{
     console.log("succesful logged in",data);
   },[isSuccess])
-
+  const user = useSelector((state)=>state.global.user)
   const {pathname} = useLocation();
   const [active,setActive] = useState("");
   const theme=useTheme();
@@ -102,18 +104,40 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
                   <ChevronLeftOutlined />
                 </IconButton>
               </ListItem>
-              <ListItem>
+              <ListItem disablePadding>
                 <div className="login">
-                  <MyButton  size="large" 
-                    onClick={()=>setLoginOpen(true)}
-                    sx={{borderRadius:"10px"}}>Sign In</MyButton>
-                  <MyButton size="large"  
-                    onClick={()=>setSignUpOpen(true)}
-                    sx={{borderRadius:"10px"}}>Login</MyButton>
-                  <div>
-                    <Login open={loginOpen} setOpen={setLoginOpen}/>
-                    <Login open={signUpOpen} setOpen={setSignUpOpen}/>
-                  </div>
+                  {user 
+                    ? <MyFlexPaper sx={{
+                      padding:"0.2rem 1rem",
+                      margin:"0.8rem 0.2rem",
+                      borderRadius:"10px",
+                      flex:1,
+                    }}>
+                        <Avatar src={user.profile} />
+                        <Typography>{user.username}</Typography>
+                        <IconButton>
+                          <EqualizerOutlined sx={{fontSize:"32px"}} />
+                        </IconButton>
+                      </MyFlexPaper>
+                    :
+                      <MyFlexPaper sx={{
+                        padding:"0.2rem 1rem",
+                        margin:"0.8rem 0.2rem",
+                        borderRadius:"10px",
+                        flex:1,
+                      }}>
+                        <MyButton  size="large" 
+                          onClick={()=>setLoginOpen(true)}
+                          sx={{borderRadius:"10px"}}>Sign In</MyButton>
+                        <MyButton size="large"  
+                          onClick={()=>setSignUpOpen(true)}
+                          sx={{borderRadius:"10px"}}>Login</MyButton>
+                        <div>
+                          <Login open={loginOpen} setOpen={setLoginOpen}/>
+                          <Login open={signUpOpen} setOpen={setSignUpOpen}/>
+                        </div>
+                      </MyFlexPaper>
+                  }
                 </div>
               </ListItem>
               {menuList.map(({text,icon})=>{
