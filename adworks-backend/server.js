@@ -1,39 +1,34 @@
-import express from "express"
-import mongoose from "mongoose"
-import User from "./User"
+import express from "express";
+import mongoose from "mongoose";
+import Cors from "cors";
+import bodyParser from "body-parser";
+// import helmet from "helmet";
+// import morgan from "morgan";
+import dotenv from "dotenv";
+import userRoutes from "./routes/user.js";
 
+import User from "./models/User.js";
+dotenv.config();
 //App Config
 const app = express()
-const port = process.env.PORT || 9000
-const connection_url = 'mongodb+srv://username:password@cluster0.np6iudu.mongodb.net/messdb?retryWrites=true&w=majority'
+const port = process.env.PORT || 9001
+const connection_url = process.env.CONNECTION_URL;
 //Middleware
 app.use(express.json());
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:false}));
 app.use(Cors());
+
+
+//settings roue controller;
+app.use("/user",userRoutes);
+
 //DB Config
+mongoose.set("strictQuery",false);
 mongoose.connect(connection_url, {
     useNewUrlParser: true,
-   })
-
-   app.get("/", (req, res) => res.status(200).send("Hello TheWebDev"))
-
-   app.post('/register', (req, res) => {
-    const userinfo = req.body
-    User.create(userinfo, (err, data) => {
-    if(err)
-    res.status(500).send(err)
-    else
-    res.status(201).send(data)
     })
-   })
-   app.get('/login', (req, res) => {
-    Messages.find((err, data) => {
-    if(err) {
-    res.status(500).send(err)
-    } else {
-    res.status(200).send(data)
-    }
+    .then(()=>{
+        app.listen(port,()=>console.log(`Server is listening on port:${port} and DB connecetd`));
     })
-   })
-
-   //Listener
-app.listen(port, () => console.log(`Listening on localhost: ${port}`))
+    .catch(err=>console.log(`${err} did not conect DB`))

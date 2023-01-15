@@ -3,23 +3,25 @@ import { BrowserRouter, Routes,Route, Navigate} from "react-router-dom";
 import { createTheme } from "@mui/material/styles";
 import { CssBaseline, ThemeProvider } from "@mui/material";
 import { themeSettings } from "theme";
+//redux
+import {useSelector,useDispatch} from "react-redux";
 import Layout from "scenes/Layout/Layout";
+import Login from "scenes/Login/Login";
 import Home from "components/Home/Home";
 import './App.css';
-import Services from "./scenes/Services/Services.jsx"
+ 
 
 function App() {
 
-  const [mode,setMode] = useState("dark");
+  const mode = useSelector((state)=>state.global.mode);
   const theme = useMemo(()=>createTheme(themeSettings(mode)),[mode]);
-  
   return (
     <div className="app">
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />
           <Routes>
-            <Route element={<Layout  setMode={setMode} />}>
+            <Route element={<Layout/>}>
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />}/>
               <Route path="/services" element={<Services />}/>
@@ -28,6 +30,7 @@ function App() {
               <Route path="/our-team" element={<Home />}/>
               <Route path="/contact" element={<Home />}/>
             </Route>
+            <Route path="/login" element={<Login />}/>
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
