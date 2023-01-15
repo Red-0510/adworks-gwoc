@@ -12,6 +12,6 @@ html,body,.app,#root{
   text-transform: none;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+#root{
+  background-image: url("assets/ui/4395921.ai");
+}

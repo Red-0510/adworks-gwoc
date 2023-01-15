@@ -1,11 +1,12 @@
 import React from 'react'
-import { Typography,Button,useTheme,IconButton } from '@mui/material'
+import { Typography,Button,useTheme,IconButton,Avatar } from '@mui/material'
 import {Menu,
   DarkModeOutlined,
   LightModeOutlined,
   SettingsOutlined,
   ImagesearchRoller
 } from "@mui/icons-material";
+import { useSelector } from 'react-redux';
 // redux
 import {setMode} from "state/store"
 import {useDispatch} from "react-redux";
@@ -18,6 +19,7 @@ import profile from "assets/images/profile.png"
 const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
   const theme=useTheme();
   const dispatch = useDispatch();
+  const user = useSelector(state=>state.global.user);
   return (
     <div className='navbar'>
       <IconButton onClick={()=>setIsSidebarOpen(!isSidebarOpen)}>
@@ -42,9 +44,10 @@ const Navbar = ({isSidebarOpen,setIsSidebarOpen}) => {
              : <LightModeOutlined sx={{fontSize:"32px"}}/>
           }
         </IconButton>
-        <IconButton>
-          <img src={profile} className="logo" />
+        { user && <IconButton>
+          <Avatar src={user.profile} />
         </IconButton>
+        }
       </div>
     </div>
   )

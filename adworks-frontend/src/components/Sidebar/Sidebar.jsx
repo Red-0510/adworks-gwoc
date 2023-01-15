@@ -9,6 +9,7 @@ import { Drawer ,
   ListItemIcon,
   Typography,
   Avatar,
+  Collapse,
 } from '@mui/material'
 import {
   ChevronLeftOutlined,
@@ -28,6 +29,7 @@ import Login from 'scenes/Login/Login';
 import "./Sidebar.css";
 import _ from "lodash";
 import MyFlexPaper from 'components/MyFlexPaper/MyFlexPaper';
+import DashBoard from 'scenes/DashBoard/DashBoard';
 // import CurrencyRupeeOutlinedIcon from '@mui/icons-material/CurrencyRupeeOutlined';
 const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
 
@@ -74,10 +76,12 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
   const navigate = useNavigate();
   const [loginOpen,setLoginOpen]=useState(false);
   const [signUpOpen,setSignUpOpen]=useState(false);
+  const [dashBoardOpen,setDashBoardOpen] = useState(false);
   // UseEffects hooks
   useEffect(()=>{
     setActive(pathname.substring(1));
     setIsSidebarOpen(false);
+    setDashBoardOpen(false);
   },[pathname]);
   return (
     <div className="sidebar">
@@ -115,7 +119,7 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
                     }}>
                         <Avatar src={user.profile} />
                         <Typography>{user.username}</Typography>
-                        <IconButton>
+                        <IconButton onClick={()=>setDashBoardOpen(!dashBoardOpen)}>
                           <EqualizerOutlined sx={{fontSize:"32px"}} />
                         </IconButton>
                       </MyFlexPaper>
@@ -139,6 +143,9 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
                       </MyFlexPaper>
                   }
                 </div>
+              </ListItem>
+              <ListItem disablePadding>
+                  <DashBoard dashBoardOpen={dashBoardOpen}/>
               </ListItem>
               {menuList.map(({text,icon})=>{
                 // if(icon==="") return( //to be used if want labels in Sidebar
