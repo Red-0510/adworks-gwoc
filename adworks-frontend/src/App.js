@@ -6,6 +6,7 @@ import { themeSettings } from "theme";
 import Layout from "scenes/Layout/Layout";
 import Home from "components/Home/Home";
 import './App.css';
+import Services from "./scenes/Services/Services.jsx"
 
 function App() {
 
@@ -21,11 +22,11 @@ function App() {
             <Route element={<Layout  setMode={setMode} />}>
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />}/>
-              <Route path="/services" element={<Home />}/>
+              <Route path="/services" element={<Services />}/>
               <Route path="/our-work" element={<Home />}/>
               <Route path="/pricing" element={<Home />}/>
               <Route path="/our-team" element={<Home />}/>
-              {/* <Route path="/contact" element={<Home />}/> */}
+              <Route path="/contact" element={<Home />}/>
             </Route>
           </Routes>
         </ThemeProvider>

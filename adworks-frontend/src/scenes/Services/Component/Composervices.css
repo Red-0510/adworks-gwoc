@@ -1,3 +1,9 @@
 .compo{
     display: flex;
+    /* width: 30% !important; */
+    justify-content: center;
+    /* align-items: center; */
+}
+.iconcompo{
+    width:20%
 }
