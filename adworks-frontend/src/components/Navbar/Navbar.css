@@ -11,3 +11,11 @@
     object-fit: cover;
     border-radius: 50%;
 }
+
+.info{
+    display: flex;
+}
+
+.nav_tabs{
+    display: flex;
+}

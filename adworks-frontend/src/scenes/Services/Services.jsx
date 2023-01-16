@@ -4,7 +4,7 @@ import "./Services.css"
 import profile1 from "assets/images/profile.png"
 import profile2 from "assets/images/KA-Laptop-NEW-1.jpg"
 import profile3 from "assets/images/elevate-cards.webp"
-import Carousel from 'components/Home/Carousel'
+import Carousel from 'scenes/Home/Carousel'
 import {
   HomeOutlined,
   GroupSharp,
