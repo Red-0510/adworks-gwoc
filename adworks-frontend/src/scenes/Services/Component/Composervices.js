@@ -1,9 +1,9 @@
 import React from 'react';
 import "./Composervices.css"
-import { Paper } from '@mui/material';
+// import { Paper } from '@mui/material';
 function Composervices(props) {
     return ( 
-        <div className='compo' style={{width:props.width?"70%":"30%"}}>
+        <div className='compo' >
         {props.icon&&<div className='iconcompo'>
         <props.icon/>
         </div>}
