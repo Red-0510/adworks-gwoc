@@ -6,7 +6,7 @@ import { themeSettings } from "theme";
 //redux
 import {useSelector} from "react-redux";
 import Layout from "scenes/Layout/Layout";
-import SignIn from "scenes/SignIn/SignIn";
+// import SignIn from "scenes/SignIn/SignIn";
 import SignUp from "scenes/SignIn/SignUp";
 import Home from "scenes/Home/Home";
 import Contact from "scenes/Contact/Contact";
@@ -34,7 +34,7 @@ function App() {
               <Route path="/our-team" element={<Home />}/>
               <Route path="/contact" element={<Contact />}/>
             </Route>
-            <Route path="/login" element={<SignIn />}/>
+            <Route path="/login" element={<SignUp />}/>
             <Route path="/signup" element={<SignUp />}/>
           </Routes>
         </ThemeProvider>

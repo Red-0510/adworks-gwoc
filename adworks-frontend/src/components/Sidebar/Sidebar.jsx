@@ -56,19 +56,10 @@ const menuList=[
 ];
 
 const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
-  //add this lines in Login component
-  const [login,{data,isSuccess,isError,error}]=useLoginMutation();
-  
-  const handlelogin = ()=>{
-    // handle the use
-    const email="abcd@gmail.com";
-    const password = "abcd";
-    login({email,password});
-  }
 
-  useEffect(()=>{
-    console.log("succesful logged in",data);
-  },[isSuccess])
+  // useEffect(()=>{
+  //   console.log("succesful logged in",data);
+  // },[isSuccess])
   const user = useSelector((state)=>state.global.user)
   const {pathname} = useLocation();
   const [active,setActive] = useState("");
