@@ -31,31 +31,31 @@ import _ from "lodash";
 import MyFlexPaper from 'components/MyFlexPaper/MyFlexPaper';
 import DashBoard from 'components/DashBoard/DashBoard';
 // import CurrencyRupeeOutlinedIcon from '@mui/icons-material/CurrencyRupeeOutlined';
+
+const menuList=[
+  {
+    text:"Home",
+    icon:<HomeOutlined />
+  },
+  {
+    text:"Services",
+    icon:<MiscellaneousServicesOutlined />
+  },{
+    text:"Our work",
+    icon:<GradeOutlined />
+  },{
+    text:"Pricing",
+    icon:<CurrencyRupeeOutlined />
+  },{
+    text:"Our Team",
+    icon:<GroupSharp/>
+  },{
+    text:"Contact",
+    icon:<ContactPageSharp />
+  },
+];
+
 const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
-
-  const menuList=[
-    {
-      text:"Home",
-      icon:<HomeOutlined />
-    },
-    {
-      text:"Services",
-      icon:<MiscellaneousServicesOutlined />
-    },{
-      text:"Our work",
-      icon:<GradeOutlined />
-    },{
-      text:"Pricing",
-      icon:<CurrencyRupeeOutlined />
-    },{
-      text:"Our Team",
-      icon:<GroupSharp/>
-    },{
-      text:"Contact",
-      icon:<ContactPageSharp />
-    },
-  ];
-
   //add this lines in Login component
   const [login,{data,isSuccess,isError,error}]=useLoginMutation();
   
@@ -144,9 +144,9 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
                   }
                 </div>
               </ListItem>
-              <ListItem disablePadding>
+              {/* <ListItem disablePadding>
                   <DashBoard dashBoardOpen={dashBoardOpen}/>
-              </ListItem>
+              </ListItem> */}
               {menuList.map(({text,icon})=>{
                 // if(icon==="") return( //to be used if want labels in Sidebar
                 //   <Typography key={text} >text</Typography> 
@@ -190,4 +190,5 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
   )
 }
 
-export default Sidebar
+export default Sidebar;
+export {menuList};

@@ -4,7 +4,13 @@ import {api} from "state/api";
 
 const initialState={
     mode:"dark",
-    user:null,
+    // user:null,
+    user:{
+        username:"jainesh",
+        email:"hello@mail.com",
+        profile:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg",
+    },
+    isMobile:true,
 };
 
 const globalSlice = createSlice({
@@ -18,7 +24,10 @@ const globalSlice = createSlice({
             console.log(data);
             state.user=data.payload.data;
             console.log(state.user);
-        }
+        },
+        setDevice : (state)=>{
+            state.isMobile =(!state.isMobile)
+        },
     },
 });
 
@@ -34,6 +43,6 @@ const store = configureStore({
 
 setupListeners(store.dispatch);
 
-const {setMode,setUser} = globalSlice.actions;
-export {globalSlice,globalReducer,setMode,setUser};
+const {setMode,setUser,setDevice} = globalSlice.actions;
+export {globalSlice,globalReducer,setMode,setUser,setDevice};
 export default store;
