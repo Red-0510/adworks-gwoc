@@ -1,15 +1,15 @@
 import React,{useState,useEffect} from 'react'
 import { Drawer ,
   useTheme,
-  Button, 
+  // Button, 
   IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
-  ListItemText,
+  // ListItemText,
   Typography,
-  Divider
+  // Divider
 } from '@mui/material'
 import {
   ChevronLeftOutlined,
@@ -20,7 +20,7 @@ import {
   CurrencyRupeeOutlined,
   GradeOutlined,
 } from "@mui/icons-material";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { Navigate, Route, useLocation, useNavigate } from 'react-router-dom';
 import { useLoginMutation } from 'state/api';
 import MyButton from "components/MyButton/MyButton";
 import "./Sidebar.css";
@@ -61,9 +61,9 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
     login({email,password});
   }
 
-  useEffect(()=>{
-    console.log("succesful logged in",data);
-  },[isSuccess])
+  // useEffect(()=>{
+  //   console.log("succesful logged in",data);
+  // },[isSuccess])
 
   const {pathname} = useLocation();
   const [active,setActive] = useState("");
@@ -74,6 +74,7 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
     setActive(pathname.substring(1));
     setIsSidebarOpen(false);
   },[pathname]);
+
   return (
     <div className="sidebar">
         <Drawer
@@ -101,12 +102,8 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
               </ListItem>
               <ListItem>
                 <div className="login">
-                  <MyButton  size="large" 
-                    onClick={handlelogin}
-                    sx={{borderRadius:"10px"}}>Sign In</MyButton>
-                  <MyButton size="large"  
-                    onClick={()=>navigate("/login")}
-                    sx={{borderRadius:"10px"}}>Login</MyButton>
+                <MyButton onClick={() => {navigate("/signup")}} size="large" sx={{ borderRadius: "10px" }}>Sign Up</MyButton>
+                <MyButton onClick={() => {navigate("/login")}} size="large"  sx={{borderRadius:"10px"}}>Login</MyButton>
                 </div>
               </ListItem>
               {menuList.map(({text,icon})=>{

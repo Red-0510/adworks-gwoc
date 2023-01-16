@@ -6,10 +6,12 @@ import { themeSettings } from "theme";
 //redux
 import {useSelector,useDispatch} from "react-redux";
 import Layout from "scenes/Layout/Layout";
-import Login from "scenes/Login/Login";
+// import SignIn from "scenes/SignIn/SignIn";
+// import SignUp from "scenes/SignIn/SignUp";
 import Home from "components/Home/Home";
 import Services from "scenes/Services/Services";
 import './App.css';
+// import Services from "scenes/Services/Services";
  
 
 function App() {
@@ -31,7 +33,8 @@ function App() {
               <Route path="/our-team" element={<Home />}/>
               <Route path="/contact" element={<Home />}/>
             </Route>
-            <Route path="/login" element={<Login />}/>
+            {/* <Route path="/login" element={<SignIn />}/> */}
+            {/* <Route path="/signup" element={<SignUp />}/> */}
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
