@@ -12,6 +12,7 @@ import Home from "scenes/Home/Home";
 import Contact from "scenes/Contact/Contact";
 import './App.css';
 import Services from "scenes/Services/Services";
+import Team from "scenes/ourTeam/ourTeam";
  
 
 function App() {
@@ -31,10 +32,9 @@ function App() {
               <Route path="/services" element={<Services />}/>
               <Route path="/our-work" element={<Home />}/>
               <Route path="/pricing" element={<Home />}/>
-              <Route path="/our-team" element={<Home />}/>
-              <Route path="/contact" element={<Contact />}/>
-            </Route>
-            <Route path="/login" element={<SignUp />}/>
+              <Route path="/our-team" element={<Team />}/>
+              <Route path="/contact" element={<Home />}/></Route>
+            {/* <Route path="/login" element={<SignIn />}/> */}
             <Route path="/signup" element={<SignUp />}/>
           </Routes>
         </ThemeProvider>
