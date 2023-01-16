@@ -6,10 +6,12 @@ import { themeSettings } from "theme";
 //redux
 import {useSelector} from "react-redux";
 import Layout from "scenes/Layout/Layout";
-import Login from "scenes/Login/Login";
+import SignIn from "scenes/SignIn/SignIn";
+import SignUp from "scenes/SignIn/SignUp";
 import Home from "scenes/Home/Home";
 import Contact from "scenes/Contact/Contact";
 import './App.css';
+import Services from "scenes/Services/Services";
  
 
 function App() {
@@ -26,13 +28,14 @@ function App() {
             <Route element={<Layout/>}>
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />}/>
-              <Route path="/services" element={<Home />}/>
+              <Route path="/services" element={<Services />}/>
               <Route path="/our-work" element={<Home />}/>
               <Route path="/pricing" element={<Home />}/>
               <Route path="/our-team" element={<Home />}/>
               <Route path="/contact" element={<Contact />}/>
             </Route>
-            <Route path="/login" element={<Login />}/>
+            <Route path="/login" element={<SignIn />}/>
+            <Route path="/signup" element={<SignUp />}/>
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

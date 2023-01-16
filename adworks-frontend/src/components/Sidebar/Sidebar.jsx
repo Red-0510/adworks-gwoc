@@ -1,7 +1,7 @@
 import React,{useState,useEffect} from 'react'
 import { Drawer ,
   useTheme,
-  Button, 
+  // Button, 
   IconButton,
   List,
   ListItem,
@@ -21,8 +21,8 @@ import {
   GradeOutlined,
   EqualizerOutlined,
 } from "@mui/icons-material";
-import { useLocation, useNavigate } from 'react-router-dom';
-import { useLoginMutation } from 'state/api';
+import { Navigate, Route, useLocation, useNavigate } from 'react-router-dom';
+// import { useLoginMutation } from 'state/api';
 import {useSelector} from "react-redux"
 import MyButton from "components/MyButton/MyButton";
 import Login from 'scenes/Login/Login';
@@ -83,6 +83,7 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
     setIsSidebarOpen(false);
     setDashBoardOpen(false);
   },[pathname]);
+
   return (
     <div className="sidebar">
         <Drawer
