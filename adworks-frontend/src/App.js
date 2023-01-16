@@ -6,9 +6,11 @@ import { themeSettings } from "theme";
 //redux
 import {useSelector,useDispatch} from "react-redux";
 import Layout from "scenes/Layout/Layout";
-import Login from "scenes/Login/Login";
+import SignIn from "scenes/SignIn/SignIn";
+import SignUp from "scenes/SignIn/SignUp";
 import Home from "components/Home/Home";
 import './App.css';
+import Services from "scenes/Services/Services";
  
 
 function App() {
@@ -24,13 +26,14 @@ function App() {
             <Route element={<Layout/>}>
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />}/>
-              <Route path="/services" element={<Home />}/>
+              <Route path="/services" element={<Services />}/>
               <Route path="/our-work" element={<Home />}/>
               <Route path="/pricing" element={<Home />}/>
               <Route path="/our-team" element={<Home />}/>
               <Route path="/contact" element={<Home />}/>
             </Route>
-            <Route path="/login" element={<Login />}/>
+            <Route path="/login" element={<SignIn />}/>
+            <Route path="/signup" element={<SignUp />}/>
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
