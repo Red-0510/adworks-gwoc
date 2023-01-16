@@ -8,6 +8,7 @@ import {useSelector,useDispatch} from "react-redux";
 import Layout from "scenes/Layout/Layout";
 import Login from "scenes/Login/Login";
 import Home from "components/Home/Home";
+import Services from "scenes/Services/Services";
 import './App.css';
  
 

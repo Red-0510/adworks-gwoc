@@ -3,6 +3,8 @@
     /* width: 90%; */
     /* align-items: center; */
     justify-content: center;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 .servi3,.servi4{
     display: flex;

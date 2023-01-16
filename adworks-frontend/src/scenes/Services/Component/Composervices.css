@@ -1,9 +1,12 @@
 .compo{
     display: flex;
-    /* width: 30% !important; */
     justify-content: center;
-    /* align-items: center; */
+    margin: auto;
 }
 .iconcompo{
-    width:20%
+    /* display: flex; */
+    width: 10%
+}
+.compotexts{
+    width:90%;
 }

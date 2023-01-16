@@ -3,7 +3,7 @@ import profile from "assets/images/profile.png"
 import "./Carousel.css"
 
 
-function Carousel() { 
+function Carousel(props) { 
     return (
       
         <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel"  data-keyboard="true" data-interval="3000" data-pause="hover">
@@ -14,13 +14,13 @@ function Carousel() {
   </ol>
   <div className="carousel-inner">
     <div className="carousel-item active">
-      <img className="d-block w-100 h-30 carousel_height" src={profile} alt="First slide" />
+      <img className="d-block w-100 h-30 carousel_height" src={props.profile3} alt="First slide" />
     </div>
     <div className="carousel-item">
-      <img className="d-block w-100 h-30 carousel_height" src={profile} alt="Second slide" />
+      <img className="d-block w-100 h-30 carousel_height" src={props.profile2} alt="Second slide" />
     </div>
     <div className="carousel-item">
-      <img className="d-block w-100 h-30 carousel_height" src={profile} alt="Third slide" />
+      <img className="d-block w-100 h-30 carousel_height" src={props.profile3} alt="Third slide" />
     </div>
   </div>
   <a className="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">

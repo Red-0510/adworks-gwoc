@@ -51,13 +51,15 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
     },
   ];
 
-  //add this lines in Login component
-  // const [login,{data,isSuccess,isError,error}]=useLoginMutation();
+  // // add this lines in Login component
+  const email="dfdf";
+  const password=34;
+  const [login,{data,isSuccess,isError,error}]=useLoginMutation();
   
-  // const handlelogin = ()=>{
-  //   // handle the use
-  //   login({email,password});
-  // }
+  const handlelogin = ()=>{
+    // handle the use
+    login({email,password});
+  }
 
   useEffect(()=>{
     console.log("succesful logged in",data);
