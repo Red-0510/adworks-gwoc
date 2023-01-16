@@ -1,15 +1,15 @@
 import React,{useState,useEffect} from 'react'
 import { Drawer ,
   useTheme,
-  Button, 
+  // Button, 
   IconButton,
   List,
   ListItem,
   ListItemButton,
   ListItemIcon,
+  ListItemText,
   Typography,
-  Avatar,
-  Collapse,
+  Divider
 } from '@mui/material'
 import {
   ChevronLeftOutlined,
@@ -23,7 +23,6 @@ import {
 } from "@mui/icons-material";
 import { useLocation, useNavigate } from 'react-router-dom';
 import { useLoginMutation } from 'state/api';
-import {useSelector} from "react-redux"
 import MyButton from "components/MyButton/MyButton";
 import Login from 'scenes/Login/Login';
 import "./Sidebar.css";
@@ -55,21 +54,18 @@ const menuList=[
   },
 ];
 
-const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
   //add this lines in Login component
-  const [login,{data,isSuccess,isError,error}]=useLoginMutation();
+  // const [login,{data,isSuccess,isError,error}]=useLoginMutation();
   
-  const handlelogin = ()=>{
-    // handle the use
-    const email="abcd@gmail.com";
-    const password = "abcd";
-    login({email,password});
-  }
+  // const handlelogin = ()=>{
+  //   // handle the use
+  //   login({email,password});
+  // }
 
   useEffect(()=>{
     console.log("succesful logged in",data);
   },[isSuccess])
-  const user = useSelector((state)=>state.global.user)
+
   const {pathname} = useLocation();
   const [active,setActive] = useState("");
   const theme=useTheme();
@@ -83,6 +79,7 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
     setIsSidebarOpen(false);
     setDashBoardOpen(false);
   },[pathname]);
+
   return (
     <div className="sidebar">
         <Drawer
@@ -110,38 +107,12 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
               </ListItem>
               <ListItem disablePadding>
                 <div className="login">
-                  {user 
-                    ? <MyFlexPaper sx={{
-                      padding:"0.2rem 1rem",
-                      margin:"0.8rem 0.2rem",
-                      borderRadius:"10px",
-                      flex:1,
-                    }}>
-                        <Avatar src={user.profile} />
-                        <Typography>{user.username}</Typography>
-                        <IconButton onClick={()=>setDashBoardOpen(!dashBoardOpen)}>
-                          <EqualizerOutlined sx={{fontSize:"32px"}} />
-                        </IconButton>
-                      </MyFlexPaper>
-                    :
-                      <MyFlexPaper sx={{
-                        padding:"0.2rem 1rem",
-                        margin:"0.8rem 0.2rem",
-                        borderRadius:"10px",
-                        flex:1,
-                      }}>
-                        <MyButton  size="large" 
-                          onClick={()=>setLoginOpen(true)}
-                          sx={{borderRadius:"10px"}}>Sign In</MyButton>
-                        <MyButton size="large"  
-                          onClick={()=>setSignUpOpen(true)}
-                          sx={{borderRadius:"10px"}}>Login</MyButton>
-                        <div>
-                          <Login open={loginOpen} setOpen={setLoginOpen}/>
-                          <Login open={signUpOpen} setOpen={setSignUpOpen}/>
-                        </div>
-                      </MyFlexPaper>
-                  }
+                  <MyButton  size="large" 
+                    onClick={handlelogin}
+                    sx={{borderRadius:"10px"}}>Sign In</MyButton>
+                  <MyButton size="large"  
+                    onClick={()=>navigate("/login")}
+                    sx={{borderRadius:"10px"}}>Login</MyButton>
                 </div>
               </ListItem>
               {/* <ListItem disablePadding>
