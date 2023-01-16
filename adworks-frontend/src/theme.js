@@ -31,7 +31,7 @@ const themeDark = {
         300:"#0e0b0b",
     },
     background:{
-        default:"#161b22",
+        default:"#171941",
         alt:"#2d323a",
     }
 };
@@ -59,7 +59,7 @@ const themeSettings=(mode)=>{
                 ),
         },
         typography:{
-            fontFamily:["Verdana","Geneva","Tahoma","sans-serif"].join(","),
+            fontFamily:["Poppins","sans-serif"].join(","),
         }
 
     }

@@ -8,7 +8,7 @@ function Carousel() {
       
         <div id="carouselExampleIndicators" className="carousel slide" data-ride="carousel"  data-keyboard="true" data-interval="3000" data-pause="hover">
   <ol className="carousel-indicators">
-    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" className="active"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
     <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
   </ol>
