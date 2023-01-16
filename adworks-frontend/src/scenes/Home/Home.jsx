@@ -15,7 +15,7 @@ const Home = () => {
           <h1 class="h1-seo">AdWorks</h1>
           <h3>Dare to dream Big.</h3>
           <h3>We will make</h3>
-          <h3>it happen.</h3>
+          <h3>it happen..</h3>
         </div>
       </div>
       <div className="carobody">
