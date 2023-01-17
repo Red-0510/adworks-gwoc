@@ -9,3 +9,59 @@
 .link a,.link a:visited{
     color:white;
 }
+.Footer{
+    display: flex;
+    flex-direction:row;
+    margin-top: 2rem;
+    border-top: 2px solid #6b6b6b;
+    margin: 2rem 5rem;
+    padding-top: 1rem;
+    box-sizing: border-box;
+    align-items: center;
+}
+.Footer div{
+    justify-content: center;
+    margin: 1rem;
+    word-wrap: break-word;
+    flex:1;
+    text-align: center;
+}
+/* #navigate{
+    border-right: 2px solid #6b6b6b;
+}
+#info{
+    border-right: 2px solid #6b6b6b;
+} */
+
+#navigate ul li{
+    list-style: none;
+}
+#navigate ul{
+
+    padding: 1rem;
+}
+
+@media only screen and (max-width:860spx){
+    .Footer {
+        flex-direction: column;
+    }
+    .Footer div{
+        text-align: center;
+    }
+    #info{
+        margin: auto 3rem;
+        border-bottom: 2px solid #6b6b6b;
+        border-right: none;
+    }
+    .Footer div iframe{
+        width: 300px;
+        height: 200px;
+    }
+    #navigate{
+        border-bottom:2px solid #6b6b6b ;
+        border-right: none;
+    }
+
+    
+
+}
