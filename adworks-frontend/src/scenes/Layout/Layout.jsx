@@ -6,7 +6,7 @@ import Sidebar from "components/Sidebar/Sidebar";
 import Footer from "components/Footer/Footer";
 import "./Layout.css";
 const Layout = (props) => {
-  const isMobile = useMediaQuery("(max-width:800px)");
+  const isMobile = useMediaQuery("(max-width:1050px)");
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   return (
