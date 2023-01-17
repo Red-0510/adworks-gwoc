@@ -9,9 +9,9 @@ import {
   MenuItem,
   Divider,
   useMediaQuery,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
+  // ListItem,
+  // ListItemButton,
+  // ListItemIcon,
 } from "@mui/material";
 import {
   Menu as MenuIcon,
@@ -19,7 +19,7 @@ import {
   LightModeOutlined,
   ArrowDropDownRounded,
   ArrowDropUpRounded,
-  PersonAdd,
+  // PersonAdd,
   Settings,
   Logout,
   AccountCircleOutlined,
@@ -30,11 +30,11 @@ import { useSelector, useDispatch } from "react-redux";
 import { setMode } from "state/store";
 
 import "./Navbar.css";
-import MyButton from "components/MyButton/MyButton";
+// import MyButton from "components/MyButton/MyButton";
 import { menuList } from "components/Sidebar/Sidebar";
 import logo from "assets/images/logo192.png";
-import profile from "assets/images/profile.png";
-import Sidebar from "components/Sidebar/Sidebar";
+// import profile from "assets/images/profile.png";
+// import Sidebar from "components/Sidebar/Sidebar";
 import { useNavigate } from "react-router-dom";
 import _ from "lodash";
 const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
