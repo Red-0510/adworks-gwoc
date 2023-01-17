@@ -8,7 +8,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 const ZoomDialog = ({open,setOpen,children}) => {
 
     function handleClick(e,reason){
-        if (reason!="backdropClick" && reason!="escapeKeyDown") {
+        if (reason!=="backdropClick" && reason!=="escapeKeyDown") {
             setOpen(false);
         }
         

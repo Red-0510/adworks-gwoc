@@ -1,4 +1,4 @@
-import { textTransform } from "@mui/system";
+// import { textTransform } from "@mui/system";
 
 const themeDark = {
     neutral: {
@@ -44,8 +44,9 @@ const themeLight={
     neutral:themeDark.primary,
     ternary:themeDark.ternary,
     background:{
-        deafult:"#ffffff",
-        alt:"#c2c2c2"
+        deafult:"rgb(3,24,108)",
+        alt: "#c2c2c2",
+        mainGradient:"linear-gradient(137deg, rgba(3,24,108,1) 0%, rgba(155,230,235,1) 67%)"
     }
 }
 
