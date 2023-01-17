@@ -29,7 +29,8 @@ import { useSelector, useDispatch } from "react-redux";
 // redux
 import { setMode } from "state/store";
 
-import "./Navbar.css";
+import MyFlexPaper from "components/MyFlexPaper/MyFlexPaper";
+import Login from "scenes/Login/Login";
 import MyButton from "components/MyButton/MyButton";
 import { menuList } from "components/Sidebar/Sidebar";
 import logo from "assets/images/logo192.png";
@@ -37,6 +38,7 @@ import profile from "assets/images/profile.png";
 import Sidebar from "components/Sidebar/Sidebar";
 import { useNavigate } from "react-router-dom";
 import _ from "lodash";
+import "./Navbar.css";
 const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const theme = useTheme();
   const user = useSelector((state) => state.global.user);
@@ -44,9 +46,11 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
-  const isMobile = useMediaQuery("(max-width:800px)");
-  const navigate = useNavigate();
+  const isMobile = useMediaQuery("(max-width:1050px)");
+  const navigate = useNavigate()
   const [active, setActive] = useState(null);
+  const [loginOpen, setLoginOpen] = useState(false);
+  const [registerOpen, setRegisterOpen] = useState(false);
   return (
     <div className="navbar">
       {isMobile && (
@@ -70,31 +74,32 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           {menuList.map(({ text, icon }) => {
             const textLower = _.kebabCase(text);
             return (
-                <Button key={text}
-                  onClick={() => {
-                    navigate(`/${textLower}`);
-                    setActive(textLower);
-                  }}
-                  sx={{
-                    backgroundColor: "transparent",
-                    color:"white",
-                    boxShadow:
-                      active === textLower
-                        ? `180px 0 90px -60px inset ${theme.palette.ternary.main} `
-                        : "none",
-                    marginLeft:"10px",
-                  }}
-                >
+              <Button
+                key={text}
+                onClick={() => {
+                  navigate(`/${textLower}`);
+                  setActive(textLower);
+                }}
+                sx={{
+                  backgroundColor: "transparent",
+                  color: "white",
+                  boxShadow:
+                    active === textLower
+                      ? `180px 0 90px -60px inset ${theme.palette.ternary.main} `
+                      : "none",
+                  marginLeft: "10px",
+                }}
+              >
                 {icon}
                 <Typography
-                    key={text}
-                    sx={{
-                      fontWeight: textLower === active ? "bold" : "400",
-                    }}
-                  >
-                    {text}
-                  </Typography>
-                </Button>
+                  key={text}
+                  sx={{
+                    fontWeight: textLower === active ? "bold" : "400",
+                  }}
+                >
+                  {text}
+                </Typography>
+              </Button>
             );
           })}
         </div>
@@ -170,6 +175,29 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 Logout
               </MenuItem>
             </Menu>
+          </div>
+        )}
+        {!isMobile && !user && (
+          <div className="navbar_login">
+              <MyButton
+                className="login"
+                size="large"
+                onClick={() => setLoginOpen(true)}
+              >
+                Log In
+              </MyButton>
+              <MyButton
+                className="login"
+                size="large"
+                onClick={() => setRegisterOpen(true)}
+              >
+                Register
+              </MyButton>
+              <div>
+                <Login open={loginOpen} setOpen={setLoginOpen} />
+                <Login open={registerOpen} setOpen={setRegisterOpen} register={true}/>
+              </div>
+            {/* </MyFlexPaper> */}
           </div>
         )}
       </div>
