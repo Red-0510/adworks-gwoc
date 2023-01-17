@@ -21,8 +21,8 @@ import {
 import { useMediaQuery } from '@mui/material'
 // import Instagram from '@mui/icons-material/Instagram'
 const Services = () => {
-  const media=useMediaQuery("(max-width:1000px)");
-  const medai=useMediaQuery("(max-width:650px)");
+  const isTablet=useMediaQuery("(max-width:1000px)");
+  const isMobile=useMediaQuery("(max-width:650px)");
   return (
     <div className='services'>
     <div className='carobody'><Carousel  profile2={profile2}
@@ -31,7 +31,7 @@ const Services = () => {
     <br/><br/>
         <h3 style={{display:"flex",justifyContent:"center"}}>Our Services</h3>
         <br/><br/>
-        <div className={medai?"servimob":media?"servi2":"servi1"}>
+        <div className={isMobile?"servimob":isTablet?"servi2":"servi1"}>
           <Composervices icon={DesktopWindowsOutlined} title="Web Service Design" text="We develop both brochure led and e-commerce websites that are easy to manage.  We meet deadlines and work within agreed budgets."/>
           <Composervices icon={DesignServices} title="Design & Branding" text="Adworks creative team has a wealth of experience, creating everything from brochures and publications to packaging and branding." />
           <Composervices icon={GroupSharp} title="Digital Marketing" text="Our team are focused on engaging new customers for our clients. Our digital media mix can include web, social, e-marketing, PPC and display." />
@@ -68,7 +68,7 @@ Adworks design, develop and integrate logo and brand identities that are easily 
         <br/><br/>
         <h3 style={{display:"flex",justifyContent:"center"}}>Media Planning and Buying</h3>
         <br/><br/>
-        <div className={medai?"servimob":media?"servi2":"servi1"}>
+        <div className={isMobile?"servimob":isTablet?"servi2":"servi1"}>
           <Composervices icon={ArticleOutlined} title="Newspaper & Magazines" text="We are able to target publication advertising by demographics such as age, sex and geographic area and evaluate each title's performance to ensure that the most efficient titles are chosen to fulfil your brief."/>
           <Composervices icon={LocationOnOutlined} title="Out Of Home" text="Our specialist outdoor media buyer has over 20 years experience. We understand that every client has different needs. We have the flexibility to adapt, providing a great service to both small businesses and big companies." />
           <Composervices icon={DesktopWindowsOutlined} title="TV Advertising" text="With television and the internet becoming ever more closely entwined, options for TV advertisers are multiplying.  With options such as Sky Adsmart your advertising can be micro geo-targeted to key demographics." />
