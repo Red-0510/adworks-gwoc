@@ -13,6 +13,7 @@ import Contact from "scenes/Contact/Contact";
 import './App.css';
 import Services from "scenes/Services/Services";
 import Team from "scenes/ourTeam/ourTeam";
+import OurWork from "scenes/OurWork/OurWork";
  
 
 function App() {
@@ -30,7 +31,7 @@ function App() {
               <Route path="/" element={<Navigate to="/home" />} />
               <Route path="/home" element={<Home />}/>
               <Route path="/services" element={<Services />}/>
-              <Route path="/our-work" element={<Home />}/>
+              <Route path="/our-work" element={<OurWork />}/>
               <Route path="/pricing" element={<Home />}/>
               <Route path="/our-team" element={<Team />}/>
               <Route path="/contact" element={<Contact />}/>
