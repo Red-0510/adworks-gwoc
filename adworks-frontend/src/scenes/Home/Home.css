@@ -1,12 +1,14 @@
 .carobody {
-  width: 90vw;
-  margin-left: auto;
+  /* width: 90vw; */
+  width: 100%;
+  display: flex;
+  /* margin: auto ; */
   /* height: 50vh; */
-  height: 50vh;
+  /* height: 70vh; */
 }
 
 .home_landing {
-  height: 80vh;
+  height: 60vh;
   width: 80vw;
   margin: 0 auto;
 }
@@ -27,7 +29,7 @@
   background: -o-linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
   background: -moz-linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
   background: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
-  position: absolute;
+  position: fixed;
   transition: 0.5s ease-out;
   overflow: hidden;
   border-radius: 50%;

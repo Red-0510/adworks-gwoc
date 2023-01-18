@@ -1,10 +1,10 @@
 import React from 'react'
 import Composervices from './Component/Composervices'
 import "./Services.css"
-import profile1 from "assets/images/profile.png"
-import profile2 from "assets/images/KA-Laptop-NEW-1.jpg"
-import profile3 from "assets/images/elevate-cards.webp"
-import Carousel from 'scenes/Home/Carousel'
+// import profile1 from "assets/images/profile.png"
+// import profile2 from "assets/images/soc1.jpg"
+// import profile3 from "assets/images/elevate-cards.webp"
+import Carousell from 'scenes/Home/Carousell'
 import {
   HomeOutlined,
   GroupSharp,
@@ -25,9 +25,7 @@ const Services = () => {
   const medai=useMediaQuery("(max-width:650px)");
   return (
     <div className='services'>
-    <div className='carobody'><Carousel  profile2={profile2}
-      profile3={profile3}
-    /></div>
+    <div className='carobody'><Carousell /></div>
     <br/><br/>
         <h3 style={{display:"flex",justifyContent:"center"}}>Our Services</h3>
         <br/><br/>
