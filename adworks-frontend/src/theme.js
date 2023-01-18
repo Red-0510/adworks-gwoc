@@ -1,6 +1,4 @@
-// import { textTransform } from "@mui/system";
-
-const themeDark = {
+const themeDark={
     neutral: {
         // text
       main:"#ffffff",
@@ -32,23 +30,54 @@ const themeDark = {
     },
     background:{
         default:"#171941",
-        alt:"#2d323a",
+        alt: "#2d323a",
+        // default:"rgb(0,0,0)",
+        mainGradient:"linear-gradient(133deg, rgba(0,0,0,1) 0%, rgba(41,41,161,1) 38%, rgba(0,103,175,1) 100%)"
+    }
+}
+// import { textTransform } from "@mui/system";
+
+const themeLight = {
+    neutral: {
+        // text
+      main:"#000000",
+      light:"#f0f6fc",
+      300: "#ffffff",
+      200: "#f0f6fc", 
+      100: "#f0f0f0",  // manually adjusted
+    },
+    primary: {
+        // Light Blue
+        300:"#0d1a2c",
+        200: "#00264c",
+        100: "#033b72",
+        400:"#a1ffea",
+        main: "#66b2ff",
+    },
+    secondary: {
+      // green
+      300:"#00a520",
+      200: "#075606", // manually adjusted
+      100: "#02b100",
+      main: "#00dd30",
+    },
+    ternary: {
+        //black
+        300: "#ffd166",
+        200: "#555555",
+        100: "#080707",
+        main:"#0e0b0b",
+    },
+    background: {
+        default:"#8cdfff",
+        // default: "rgb(3,24,108)",
+        mainGradient:"linear-gradient(137deg, rgba(3,24,108,1) 0%, rgba(155,230,235,1) 67%)",
+        alt:"",
     }
 };
 
 
 
-const themeLight={
-    primary:themeDark.neutral,
-    secondary:themeDark.secondary,
-    neutral:themeDark.primary,
-    ternary:themeDark.ternary,
-    background:{
-        deafult:"rgb(3,24,108)",
-        alt: "#c2c2c2",
-        mainGradient:"linear-gradient(137deg, rgba(3,24,108,1) 0%, rgba(155,230,235,1) 67%)"
-    }
-}
 
 const themeSettings=(mode)=>{
     return {

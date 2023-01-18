@@ -31,12 +31,12 @@ import { setMode } from "state/store";
 
 import MyFlexPaper from "components/MyFlexPaper/MyFlexPaper";
 import Login from "scenes/Login/Login";
-// import MyButton from "components/MyButton/MyButton";
+import MyButton from "components/MyButton/MyButton";
 import { menuList } from "components/Sidebar/Sidebar";
 import logo from "assets/images/logo192.png";
 // import profile from "assets/images/profile.png";
 // import Sidebar from "components/Sidebar/Sidebar";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useLocation } from "react-router-dom";
 import _ from "lodash";
 import "./Navbar.css";
 const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
@@ -48,7 +48,8 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const dispatch = useDispatch();
   const isMobile = useMediaQuery("(max-width:1050px)");
   const navigate = useNavigate()
-  const [active, setActive] = useState(null);
+  const url = useLocation();
+  const [active, setActive] = useState(url.pathname.substring(1));
   const [loginOpen, setLoginOpen] = useState(false);
   const [registerOpen, setRegisterOpen] = useState(false);
   return (
@@ -63,6 +64,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           display: "flex",
           alignItems: "center",
           m: "0.5rem 0",
+          color:theme.palette.neutral.main,
           // gap: "1rem",
         }}
       >
@@ -82,11 +84,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 }}
                 sx={{
                   backgroundColor: "transparent",
-                  color: "white",
-                  boxShadow:
-                    active === textLower
-                      ? `180px 0 90px -60px inset ${theme.palette.ternary.main} `
-                      : "none",
+                  color: theme.palette.neutral.main,
                   marginLeft: "10px",
                 }}
               >
@@ -94,7 +92,8 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 <Typography
                   key={text}
                   sx={{
-                    fontWeight: textLower === active ? "bold" : "400",
+                    // fontWeight: textLower === active ? "700" : "400",
+                    fontSize: textLower === active ? "1.2rem" : "1rem",
                   }}
                 >
                   {text}
