@@ -1,10 +1,11 @@
-import React from "react";
-import Carousel from "./Carousel";
-import profile2 from "assets/images/KA-Laptop-NEW-1.jpg"
-import profile3 from "assets/images/elevate-cards.webp"
+
+import React, { useEffect,useMemo,useState } from "react";
+import Carousell from "./Carousell";
+
 import "./Home.css";
 
 const Home = () => {
+  const [automatic,setauto]=useState(true);
   return (
     <div className="home">
       <div className="square1 move"></div>
@@ -21,7 +22,7 @@ const Home = () => {
         </div>
       </div>
       <div className="carobody">
-        <Carousel profile2={profile2} profile3={profile3}/>
+        <Carousell />;
       </div>
     </div>
   );
