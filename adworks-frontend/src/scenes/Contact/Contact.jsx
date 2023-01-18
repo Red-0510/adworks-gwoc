@@ -16,7 +16,7 @@ const Contact = () => {
       <div className="square3 move"></div>
       <div className="square4 move"></div>
       <div className="square5 move"></div>
-      <div className="home_landing">
+      <div className="home_landing" style={{height:"30vh"}}>
         <div className="landing_text">
           <h1 className="h1-seo">AdWorks</h1>
           <h3>We Would Love To Hear From You!</h3>

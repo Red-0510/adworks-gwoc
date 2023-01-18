@@ -39,7 +39,7 @@ import profile from "assets/images/profile.png";
 import Sidebar from "components/Sidebar/Sidebar";
 import Profile from "scenes/Profile/Profile";
 import Dashboard from "scenes/Dashboard/Dashboard";
-import { useNavigate } from "react-router-dom";
+import { useNavigate ,useLocation} from "react-router-dom";
 import _ from "lodash";
 import "./Navbar.css";
 const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
