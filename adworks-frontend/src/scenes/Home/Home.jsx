@@ -1,7 +1,7 @@
 import React, { useEffect,useMemo,useState } from "react";
 import Carousell from "./Carousell";
-import profile2 from "assets/images/KA-Laptop-NEW-1.jpg"
-import profile3 from "assets/images/elevate-cards.webp"
+// import profile2 from "assets/images/KA-Laptop-NEW-1.jpg"
+// import profile3 from "assets/images/elevate-cards.webp"
 import "./Home.css";
 
 const Home = () => {
