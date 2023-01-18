@@ -1,6 +1,7 @@
 .navbar{
     width:100%;
     display:flex;
+    /* flex-wrap: nowrap; */
     align-items: center;
     justify-content: space-between;
 }
@@ -18,4 +19,9 @@
 
 .nav_tabs{
     display: flex;
+}
+
+.MuiButton-root.login{
+    height:100%;
+    margin-left: 1rem;
 }
