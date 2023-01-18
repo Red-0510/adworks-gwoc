@@ -48,7 +48,7 @@ const Contact = () => {
                 />
                 <TextField
                   className="contacts contact_item2"
-                  label="email"
+                  label="Email"
                   type="email"
                   variant="outlined"
                   margin="dense"
