@@ -56,7 +56,7 @@ function Carousell(props) {
             <Carousel
               data={data}
               time={3000}
-              width="84vw"
+              width="90vw"
               height="65vh"
               captionStyle={{fontSize:"40px",fontWeight:"bold"}}
               radius="10px"
@@ -71,11 +71,9 @@ function Carousell(props) {
               slideImageFit="cover"
               thumbnails={true}
               thumbnailWidth="100px"
+              margin= "0 auto"
               style={{
                 textAlign: "center",
-                // maxWidth: "100%",
-                // maxHeight: "100%",
-                // margin: "80px auto",
                 className:"fade",
                 objectFit:"cover",
                 boxSizing:"border-box",

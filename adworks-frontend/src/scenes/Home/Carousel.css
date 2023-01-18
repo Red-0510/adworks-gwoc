@@ -9,7 +9,6 @@
 
 .Carousell{
   flex:1;
-  margin:0 2rem;
 }
 .thumbnails{
   width: 100%;
@@ -22,4 +21,9 @@
   -o-animation-play-state:paused !important;
   animation-play-state:paused !important;
   cursor: pointer;
+}
+
+
+.box>div{
+  margin:1rem auto; 
 }
