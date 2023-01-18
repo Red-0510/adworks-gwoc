@@ -14,23 +14,23 @@ function Carousell(props) {
   const data = [
     {
       image: soc6,
-      caption: "San Francisco"
+      caption: "Digital Marketing"
     },
     {
       image: soc2,
-      caption: "Scotland"
+      caption: "Designing"
     },
     {
       image: soc3,
-      caption: "Darjeeling"
+      caption: "Content Writing"
     },
     {
       image: soc3,
-      caption: "San Francisco"
+      caption: "Social Media Marketing"
     },
     {
       image: soc5,
-      caption: "Scotland"
+      caption: "Strategy and Planning"
     }
     
   ];
@@ -38,7 +38,7 @@ function Carousell(props) {
       
   
     const captionStyle = {
-      fontSize: '2em',
+      fontSize: '2rem',
       fontWeight: 'bold',
     }
     const slideNumberStyle = {
@@ -52,18 +52,13 @@ function Carousell(props) {
 
       
       <div className="Carousell">
-        <div style={{ textAlign: "center" }}>
-          
-          <div style={{
-           
-          }}>
-          
+        {/* <div style={{ textAlign: "center" }}> */}
             <Carousel
               data={data}
               time={3000}
-              width="100%"
+              width="84vw"
               height="65vh"
-              captionStyle={captionStyle}
+              captionStyle={{fontSize:"40px",fontWeight:"bold"}}
               radius="10px"
               slideNumber={true}
               slideNumberStyle={slideNumberStyle}
@@ -78,19 +73,16 @@ function Carousell(props) {
               thumbnailWidth="100px"
               style={{
                 textAlign: "center",
-                maxWidth: "100%",
-                maxHeight: "100%",
-                margin: "80px auto",
+                // maxWidth: "100%",
+                // maxHeight: "100%",
+                // margin: "80px auto",
                 className:"fade",
                 objectFit:"cover",
+                boxSizing:"border-box",
               }}
                />
-          </div>
-        </div>
-      </div>
-
-            
-      );
+      </div>    
+      )
 }
 
 export default Carousell;
