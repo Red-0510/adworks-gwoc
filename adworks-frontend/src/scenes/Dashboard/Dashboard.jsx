@@ -7,7 +7,7 @@ const Dashboard = () => {
     const products=[];
     return (
         <div className='dashboard'>
-            
+            Dashboard
         </div>
     );
   };
