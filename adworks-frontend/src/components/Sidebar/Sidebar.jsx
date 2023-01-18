@@ -44,9 +44,6 @@ const menuList=[
     text:"Our work",
     icon:<GradeOutlined />
   },{
-    text:"Pricing",
-    icon:<CurrencyRupeeOutlined />
-  },{
     text:"Our Team",
     icon:<GroupSharp/>
   },{
@@ -66,7 +63,7 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
   const theme=useTheme();
   const navigate = useNavigate();
   const [loginOpen,setLoginOpen]=useState(false);
-  const [signUpOpen,setSignUpOpen]=useState(false);
+  const [register,setRegister]=useState(false);
   const [dashBoardOpen,setDashBoardOpen] = useState(false);
   // UseEffects hooks
   useEffect(()=>{
@@ -123,14 +120,19 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
                         flex:1,
                       }}>
                         <MyButton  size="large" 
-                          onClick={()=>setLoginOpen(true)}
-                          sx={{borderRadius:"10px"}}>Sign In</MyButton>
-                        <MyButton size="large"  
-                          onClick={()=>setSignUpOpen(true)}
+                          onClick={()=>{
+                            setLoginOpen(true);
+                            setRegister(false);
+                          }}
                           sx={{borderRadius:"10px"}}>Login</MyButton>
+                        <MyButton size="large"  
+                          onClick={()=>{
+                            setLoginOpen(true);
+                            setRegister(true);
+                          }}
+                          sx={{borderRadius:"10px"}}>Register</MyButton>
                         <div>
-                          <Login open={loginOpen} setOpen={setLoginOpen}/>
-                          <Login open={signUpOpen} setOpen={setSignUpOpen}/>
+                          <Login open={loginOpen} setOpen={setLoginOpen} register={register}/>
                         </div>
                       </MyFlexPaper>
                   }

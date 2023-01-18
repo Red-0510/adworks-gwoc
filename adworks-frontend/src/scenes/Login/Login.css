@@ -1,0 +1,22 @@
+.form_field{
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    gap:1rem;
+}
+
+.MuiFormControl-root.form_control{
+    margin:2rem 3rem;
+}
+
+.login_header{
+    display: flex;
+    justify-content: flex-end;
+    gap:15%;
+}
+
+.login_form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

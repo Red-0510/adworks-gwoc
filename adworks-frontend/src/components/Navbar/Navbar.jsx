@@ -9,9 +9,9 @@ import {
   MenuItem,
   Divider,
   useMediaQuery,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
+  // ListItem,
+  // ListItemButton,
+  // ListItemIcon,
 } from "@mui/material";
 import {
   Menu as MenuIcon,
@@ -19,7 +19,7 @@ import {
   LightModeOutlined,
   ArrowDropDownRounded,
   ArrowDropUpRounded,
-  PersonAdd,
+  // PersonAdd,
   Settings,
   Logout,
   AccountCircleOutlined,
@@ -29,14 +29,16 @@ import { useSelector, useDispatch } from "react-redux";
 // redux
 import { setMode } from "state/store";
 
-import "./Navbar.css";
+import MyFlexPaper from "components/MyFlexPaper/MyFlexPaper";
+import Login from "scenes/Login/Login";
 import MyButton from "components/MyButton/MyButton";
 import { menuList } from "components/Sidebar/Sidebar";
 import logo from "assets/images/logo192.png";
-import profile from "assets/images/profile.png";
-import Sidebar from "components/Sidebar/Sidebar";
-import { useNavigate } from "react-router-dom";
+// import profile from "assets/images/profile.png";
+// import Sidebar from "components/Sidebar/Sidebar";
+import { useNavigate,useLocation } from "react-router-dom";
 import _ from "lodash";
+import "./Navbar.css";
 const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const theme = useTheme();
   const user = useSelector((state) => state.global.user);
@@ -44,9 +46,12 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const [anchorEl, setAnchorEl] = useState(null);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
-  const isMobile = useMediaQuery("(max-width:800px)");
-  const navigate = useNavigate();
-  const [active, setActive] = useState(null);
+  const isMobile = useMediaQuery("(max-width:1050px)");
+  const navigate = useNavigate()
+  const url = useLocation();
+  const [active, setActive] = useState(url.pathname.substring(1));
+  const [loginOpen, setLoginOpen] = useState(false);
+  const [registerOpen, setRegisterOpen] = useState(false);
   return (
     <div className="navbar">
       {isMobile && (
@@ -59,6 +64,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           display: "flex",
           alignItems: "center",
           m: "0.5rem 0",
+          color:theme.palette.neutral.main,
           // gap: "1rem",
         }}
       >
@@ -70,31 +76,29 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           {menuList.map(({ text, icon }) => {
             const textLower = _.kebabCase(text);
             return (
-                <Button key={text}
-                  onClick={() => {
-                    navigate(`/${textLower}`);
-                    setActive(textLower);
-                  }}
-                  sx={{
-                    backgroundColor: "transparent",
-                    color:"white",
-                    boxShadow:
-                      active === textLower
-                        ? `180px 0 90px -60px inset ${theme.palette.ternary.main} `
-                        : "none",
-                    marginLeft:"10px",
-                  }}
-                >
+              <Button
+                key={text}
+                onClick={() => {
+                  navigate(`/${textLower}`);
+                  setActive(textLower);
+                }}
+                sx={{
+                  backgroundColor: "transparent",
+                  color: theme.palette.neutral.main,
+                  marginLeft: "10px",
+                }}
+              >
                 {icon}
                 <Typography
-                    key={text}
-                    sx={{
-                      fontWeight: textLower === active ? "bold" : "400",
-                    }}
-                  >
-                    {text}
-                  </Typography>
-                </Button>
+                  key={text}
+                  sx={{
+                    // fontWeight: textLower === active ? "700" : "400",
+                    fontSize: textLower === active ? "1.2rem" : "1rem",
+                  }}
+                >
+                  {text}
+                </Typography>
+              </Button>
             );
           })}
         </div>
@@ -170,6 +174,29 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 Logout
               </MenuItem>
             </Menu>
+          </div>
+        )}
+        {!isMobile && !user && (
+          <div className="navbar_login">
+              <MyButton
+                className="login"
+                size="large"
+                onClick={() => setLoginOpen(true)}
+              >
+                Log In
+              </MyButton>
+              <MyButton
+                className="login"
+                size="large"
+                onClick={() => setRegisterOpen(true)}
+              >
+                Register
+              </MyButton>
+              <div>
+                <Login open={loginOpen} setOpen={setLoginOpen} />
+                <Login open={registerOpen} setOpen={setRegisterOpen} register={true}/>
+              </div>
+            {/* </MyFlexPaper> */}
           </div>
         )}
       </div>
