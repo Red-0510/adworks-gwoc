@@ -11,13 +11,15 @@ html,body,.app,#root{
 }
 
 h1,h2,h3,h4,h5,h6{
-  color:white;
+  /* color:white; */
   margin:0;
 }
 
 body{
   background-image: url(assets/images/dots.png);
   background-size: contain;
+  /* background: rgb(3,24,108);
+background: linear-gradient(137deg, rgba(3,24,108,1) 0%, rgba(155,230,235,1) 67%); */
 }
 
 *{
