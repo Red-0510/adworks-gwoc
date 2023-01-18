@@ -1,9 +1,0 @@
-.dashboard{
-    width:100%;
-}
-.MuiCollapse-wrapperInner{
-    display: flex;
-    flex-direction: column;
-    margin:0 2rem;
-    justify-content: center;
-}

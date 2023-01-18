@@ -14,6 +14,7 @@ import './App.css';
 import Services from "scenes/Services/Services";
 import Team from "scenes/ourTeam/ourTeam";
 import OurWork from "scenes/OurWork/OurWork";
+import  Dashboard  from "scenes/Dashboard/Dashboard";
  
 
 function App() {
@@ -35,7 +36,7 @@ function App() {
           <Routes>
             <Route element={<Layout/>}>
               <Route path="/" element={<Navigate to="/home" />} />
-              <Route path="/home" element={<Home />}/>
+              <Route path="/home" element={<Dashboard />}/>
               <Route path="/services" element={<Services />}/>
               <Route path="/our-work" element={<OurWork />}/>
               <Route path="/pricing" element={<Home />}/>

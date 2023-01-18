@@ -22,7 +22,7 @@ const Home = () => {
         </div>
       </div>
       <div className="carobody">
-        <Carousell />;
+        <Carousell />
       </div>
     </div>
   );
