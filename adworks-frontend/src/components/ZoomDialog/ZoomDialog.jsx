@@ -11,7 +11,7 @@ const ZoomDialog = ({open,setOpen,children}) => {
     const theme = useTheme();
 
     function handleClick(e,reason){
-        if (reason!="backdropClick" && reason!="escapeKeyDown") {
+        if (reason!=="backdropClick" && reason!=="escapeKeyDown") {
             setOpen(false);
         }
         

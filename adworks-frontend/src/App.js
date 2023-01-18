@@ -20,12 +20,18 @@ function App() {
 
   const mode = useSelector((state)=>state.global.mode);
   const theme = useMemo(()=>createTheme(themeSettings(mode)),[mode]);
+  // const buttonColorChange = document.querySelectorAll("Button");
+  // if (theme.palette.mode === "dark") {
+  //   // $("buttonColorChange").css("color","black")
+
+  // }
 
   return (
     <div className="app">
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />
+          <div className="app_background" style={{backgroundColor:theme.palette.background.default}}></div>
           <Routes>
             <Route element={<Layout/>}>
               <Route path="/" element={<Navigate to="/home" />} />
