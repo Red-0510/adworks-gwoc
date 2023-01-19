@@ -1,7 +1,25 @@
-.carobody{
-    width: 90vw;
-    margin: auto;
+.fade{
+  -webkit-animation-name: fade !important; 
+   -webkit-animation-duration: 10ms !important;
+  animation-name: fade !important;
+  animation-timing-function:cubic-bezier(0, 1.11, 0.98, 8.99)!important; 
+  animation-duration: 6s !important ;
+  color:white;
 }
-  .carousel_height{
-    height: 50vh !important;
- }
+
+.Carousell{
+  flex:1;
+  margin:0 5rem;
+}
+.thumbnails{
+  width: 100%;
+  justify-content: center;
+}
+.carousel-item:hover{
+  -webkit-animation-play-state:paused !important;
+  /* animation-delay: 5s; */
+  -moz-animation-play-state:paused !important;
+  -o-animation-play-state:paused !important;
+  animation-play-state:paused !important;
+  cursor: pointer;
+}
