@@ -11,13 +11,16 @@ const UserSchema =new mongoose.Schema({
     unique:true,
     trim:true,
  },
- subscription:{
-    type:String,
+ password:{
+   type:String,
+   required:true,
  },
- products:{
-    type:Array,
- }
+ image:{
+   data:Buffer,
+   contentType:String,
+},
 },{
     timestamps:true,
 });
-export default mongoose.model('User', UserSchema);
+const User=mongoose.model('User', UserSchema);
+export default User;
