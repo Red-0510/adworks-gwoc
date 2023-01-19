@@ -167,8 +167,6 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                   <AccountCircleOutlined /> Profile
                 </IconButton>
               </MenuItem>
-              <MenuItem onClick={()=>navigate("/dashboard")}>
-                <DashboardOutlined /> Dashboard
               <MenuItem>
                 <IconButton onClick={() => navigate("/user/dashboard")}>
                   <DashboardOutlined />
