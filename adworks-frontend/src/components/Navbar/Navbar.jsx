@@ -13,6 +13,7 @@ import {
   // ListItemButton,
   // ListItemIcon,
 } from "@mui/material";
+// import Dashboard from "scenes/Dashboard/Dashboard";
 import {
   Menu as MenuIcon,
   DarkModeOutlined,
@@ -166,10 +167,8 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                   <AccountCircleOutlined />Profile
                 </IconButton>
               </MenuItem>
-              <MenuItem>
-              <IconButton onClick={()=>navigate('/user/dashboard')}>
-                  <DashboardOutlined />Dashboard
-                </IconButton>
+              <MenuItem onClick={()=>navigate("/dashboard")}>
+                <DashboardOutlined /> Dashboard
               </MenuItem>
               <Divider />
               <MenuItem>

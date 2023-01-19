@@ -14,6 +14,7 @@ import './App.css';
 import Services from "scenes/Services/Services";
 import Team from "scenes/ourTeam/ourTeam";
 import OurWork from "scenes/OurWork/OurWork";
+import  Dashboard  from "scenes/Dashboard/Dashboard";
  
 
 function App() {
@@ -41,6 +42,7 @@ function App() {
               <Route path="/pricing" element={<Home />}/>
               <Route path="/our-team" element={<Team />}/>
               <Route path="/contact" element={<Contact />}/>
+            <Route path="/dashboard" element={<Dashboard />}/>
             </Route>
             {/* <Route path="/login" element={<SignIn />}/> */}
             <Route path="/signup" element={<SignUp />}/>
