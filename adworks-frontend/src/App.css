@@ -2,5 +2,5 @@
     position: fixed;
     height: 100%;
     z-index: -2;
-    width: 100%;
+    width: 100vw;
 }

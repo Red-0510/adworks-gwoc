@@ -1,0 +1,27 @@
+.profile_pic{
+    width: 250px;
+    height: 250px;
+}
+.profile{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    align-items: center;
+    margin: 4rem 0 0 0;
+    padding: 0 ;
+    /* background-color:black; */
+}
+.profile_detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    word-wrap: break-word;
+}
+.profiles{
+    display: flex;
+    justify-content: center;
+    flex: 1;
+}

@@ -29,7 +29,7 @@ import Login from 'scenes/Login/Login';
 import "./Sidebar.css";
 import _ from "lodash";
 import MyFlexPaper from 'components/MyFlexPaper/MyFlexPaper';
-import DashBoard from 'components/DashBoard/DashBoard';
+// import DashBoard from 'components/DashBoard/DashBoard';
 // import CurrencyRupeeOutlinedIcon from '@mui/icons-material/CurrencyRupeeOutlined';
 
 const menuList=[
@@ -84,9 +84,12 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
             "& .MuiDrawer-paper":{
               color:theme.palette.secondary[100],
               backgroundColor:"transparent",
-              boxShadow: `154px 0px 196px 50px black inset`,
-              boxSizing:"border-box",
-              width:"230px",
+              boxShadow:(theme.palette.mode==="dark") ? `154px 0px 196px 50px inset black` : `154px 0px 196px 50px inset ${theme.palette.primary[300]}`,
+              boxSizing: "border-box",
+              width:"30%",
+              "@media only screen and (max-width:800px)": {
+                width:"75%"
+              }
             }
           }}
         >
@@ -104,13 +107,14 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
                       padding:"0.2rem 1rem",
                       margin:"0.8rem 0.2rem",
                       borderRadius:"10px",
-                      flex:1,
+                    flex: 1,
+                      justifyContent:"space-evenly!important"
                     }}>
                         <Avatar src={user.profile} />
                         <Typography>{user.username}</Typography>
-                        <IconButton onClick={()=>setDashBoardOpen(!dashBoardOpen)}>
-                          <EqualizerOutlined sx={{fontSize:"32px"}} />
-                        </IconButton>
+                        {/* <IconButton onClick={()=>setDashBoardOpen(!dashBoardOpen)}> */}
+                          {/* <EqualizerOutlined sx={{fontSize:"32px"}} /> */}
+                        {/* </IconButton> */}
                       </MyFlexPaper>
                     :
                       <MyFlexPaper sx={{
@@ -147,7 +151,7 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
                 // );
                 const textLower=_.kebabCase(text);
                 return (
-                  <ListItem key={text} disablePadding>
+                  <ListItem claa key={text} disablePadding>
                     <ListItemButton 
                       onClick={()=>{
                         navigate(`/${textLower}`);
@@ -155,10 +159,12 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
                       }}
                       sx={{
                       backgroundColor:"transparent",
-                      color:(active === textLower
+                      color:(theme.palette.mode==="dark")?(active === textLower
                             ? theme.palette.neutral.main 
                             : theme.palette.secondary.main
-                        ),
+                        ):(active === textLower
+                            ? theme.palette.neutral[300] 
+                            : theme.palette.secondary[300]),
                       boxShadow:( active===textLower
                             ? `180px 0 90px -60px inset ${theme.palette.ternary.main} `
                             : "none"
@@ -171,7 +177,8 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
                         fontWeight:(textLower===active
                             ? "bold"
                             : "400"
-                          ),
+                        ),
+                        color:theme.palette.neutral[400],
                       }}>{text}</Typography> 
                     </ListItemButton>
                   </ListItem>

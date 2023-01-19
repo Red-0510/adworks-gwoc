@@ -1,7 +1,5 @@
-
 import React, { useEffect,useMemo,useState } from "react";
 import Carousell from "./Carousell";
-
 import "./Home.css";
 
 const Home = () => {

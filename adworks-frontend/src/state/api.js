@@ -3,7 +3,7 @@ import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 const api=createApi({
     baseQuery:fetchBaseQuery({baseUrl:process.env.REACT_APP_SERVER_URL}),
     reducerPath:"api",
-    tagTypes:["USER","EMAIL"],
+    tagTypes:["USER","EMAIL","EMAIL"],
     endpoints :(build)=>({
         login :build.mutation({
             query: (body)=>{
@@ -36,6 +36,17 @@ const api=createApi({
             },
             invalidatesTags:[{type:"USER"}]
         }),
+        sendEmail :build.mutation({
+            query: (body)=>{
+                // console.log(body,"hello");
+                return {
+                    url:"/contact/email",
+                    method:"post",
+                    body,
+                }
+            },
+            invalidatesTags:[{type:"EMAIL"}]
+        }),
         sendEmail : build.mutation({
             query:(body)=>{
                 return { 
@@ -49,5 +60,5 @@ const api=createApi({
     })
 });
 
-const {useLoginMutation,useSendEmailMutation} = api;
-export {api,useLoginMutation,useSendEmailMutation};
+const {useLoginMutation} = api;
+export {api,useLoginMutation};
