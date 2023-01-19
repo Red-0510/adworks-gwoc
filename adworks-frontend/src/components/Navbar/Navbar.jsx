@@ -168,7 +168,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 </IconButton>
               </MenuItem>
               <MenuItem>
-                <IconButton onClick={() => navigate("/user/dashboard")}>
+                <IconButton onClick={() => navigate("/dashboard")}>
                   <DashboardOutlined />
                   Dashboard
                 </IconButton>

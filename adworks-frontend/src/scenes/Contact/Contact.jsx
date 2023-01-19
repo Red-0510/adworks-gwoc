@@ -6,19 +6,17 @@ import { Paper } from "@mui/material";
 import "./Contact.css";
 import "./../Home/Home.css";
 import { useTheme } from "@emotion/react";
-import { useSendEmailMutation } from "state/api";
+// import { useSendEmailMutation } from "state/api";
 
 const Contact = () => {
   const theme = useTheme();
-  const [sendEmail, { data, error, isSuccess, isError }] = useSendEmailMutation();
+  // const [sendEmail, { data, error, isSuccess, isError }] = useSendEmailMutation();
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [subject, setSubject] = useState();
   const [message, setMessage] = useState();
   function handleImage() {
-    sendEmail({ name,email,subject,message
-
-    })
+    alert(`Email sent to developer succesfully`);
   }
 
   return (
