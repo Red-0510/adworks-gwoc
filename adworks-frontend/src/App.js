@@ -41,8 +41,8 @@ function App() {
               <Route path="/pricing" element={<Home />}/>
               <Route path="/our-team" element={<Team />}/>
               <Route path="/contact" element={<Contact />}/>
-            </Route>
             <Route path="/profile" element={<Profile />}/>
+            </Route>
             {/* <Route path="/login" element={<SignIn />}/> */}
             {/* <Route path="/signup" element={<SignUp />} /> */}
             <Route path="/add-product" element={<Form />} />

@@ -39,7 +39,7 @@ import profile from "assets/images/profile.png";
 import Sidebar from "components/Sidebar/Sidebar";
 import Profile from "scenes/Profile/Profile";
 import Dashboard from "scenes/Dashboard/Dashboard";
-import { useNavigate ,useLocation} from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import _ from "lodash";
 import "./Navbar.css";
 const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
@@ -50,7 +50,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
   const isMobile = useMediaQuery("(max-width:1050px)");
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const url = useLocation();
   const [active, setActive] = useState(url.pathname.substring(1));
   const [loginOpen, setLoginOpen] = useState(false);
@@ -67,7 +67,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
           display: "flex",
           alignItems: "center",
           m: "0.5rem 0",
-          color:theme.palette.neutral.main,
+          color: theme.palette.neutral.main,
           // gap: "1rem",
         }}
       >
@@ -161,17 +161,20 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               transformOrigin={{ horizontal: "right", vertical: "top" }}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
-              <MenuItem  onClick={()=>navigate("/profile")}>
-                <AccountCircleOutlined/> Profile
+              <MenuItem>
+                <IconButton onClick={() => navigate("/profile")}>
+                  <AccountCircleOutlined /> Profile
+                </IconButton>
               </MenuItem>
               <MenuItem>
-              <IconButton onClick={()=>navigate('/user/dashboard')}>
-                  <DashboardOutlined />Dashboard
+                <IconButton onClick={() => navigate("/user/dashboard")}>
+                  <DashboardOutlined />
+                  Dashboard
                 </IconButton>
               </MenuItem>
               <Divider />
               <MenuItem>
-                <IconButton >
+                <IconButton>
                   <Settings /> Settings
                 </IconButton>
               </MenuItem>
@@ -185,24 +188,28 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
         )}
         {!isMobile && !user && (
           <div className="navbar_login">
-              <MyButton
-                className="login"
-                size="large"
-                onClick={() => setLoginOpen(true)}
-              >
-                Log In
-              </MyButton>
-              <MyButton
-                className="login"
-                size="large"
-                onClick={() => setRegisterOpen(true)}
-              >
-                Register
-              </MyButton>
-              <div>
-                <Login open={loginOpen} setOpen={setLoginOpen} />
-                <Login open={registerOpen} setOpen={setRegisterOpen} register={true}/>
-              </div>
+            <MyButton
+              className="login"
+              size="large"
+              onClick={() => setLoginOpen(true)}
+            >
+              Log In
+            </MyButton>
+            <MyButton
+              className="login"
+              size="large"
+              onClick={() => setRegisterOpen(true)}
+            >
+              Register
+            </MyButton>
+            <div>
+              <Login open={loginOpen} setOpen={setLoginOpen} />
+              <Login
+                open={registerOpen}
+                setOpen={setRegisterOpen}
+                register={true}
+              />
+            </div>
             {/* </MyFlexPaper> */}
           </div>
         )}
