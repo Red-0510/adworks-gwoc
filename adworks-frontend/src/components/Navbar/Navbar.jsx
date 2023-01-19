@@ -24,6 +24,7 @@ import {
   Logout,
   AccountCircleOutlined,
   DashboardOutlined,
+  LogoutOutlined,
 } from "@mui/icons-material";
 import { useSelector, useDispatch } from "react-redux";
 // redux
@@ -34,9 +35,11 @@ import Login from "scenes/Login/Login";
 import MyButton from "components/MyButton/MyButton";
 import { menuList } from "components/Sidebar/Sidebar";
 import logo from "assets/images/logo192.png";
-// import profile from "assets/images/profile.png";
-// import Sidebar from "components/Sidebar/Sidebar";
-import { useNavigate,useLocation } from "react-router-dom";
+import profile from "assets/images/profile.png";
+import Sidebar from "components/Sidebar/Sidebar";
+import Profile from "scenes/Profile/Profile";
+import Dashboard from "scenes/Dashboard/Dashboard";
+import { useNavigate ,useLocation} from "react-router-dom";
 import _ from "lodash";
 import "./Navbar.css";
 const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
@@ -159,19 +162,25 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
               <MenuItem>
-                <AccountCircleOutlined /> Profile
+                <IconButton onClick={()=>navigate('/user/profile')}>
+                  <AccountCircleOutlined />Profile
+                </IconButton>
               </MenuItem>
               <MenuItem>
-                <DashboardOutlined /> Dashboard
+              <IconButton onClick={()=>navigate('/user/dashboard')}>
+                  <DashboardOutlined />Dashboard
+                </IconButton>
               </MenuItem>
               <Divider />
               <MenuItem>
-                <Settings fontSize="small" />
-                Settings
+                <IconButton >
+                  <Settings /> Settings
+                </IconButton>
               </MenuItem>
               <MenuItem>
-                <Logout fontSize="small" />
-                Logout
+                <IconButton>
+                  <LogoutOutlined /> Logout
+                </IconButton>
               </MenuItem>
             </Menu>
           </div>

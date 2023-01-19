@@ -6,10 +6,10 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import FacebookIcon from '@mui/icons-material/Facebook';
 // import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
-// import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
+import ChevronRightRoundedIcon from '@mui/icons-material/ChevronRightRounded';
+import { Phone } from '@mui/icons-material';
 
 import "./Footer.css";
-// import { Phone } from '@mui/icons-material';
 
 const Footer = () => {
   const theme = useTheme();
