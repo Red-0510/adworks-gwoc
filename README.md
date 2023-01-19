@@ -31,18 +31,26 @@ Tech Stack: MERN
           PORT=<Port>
           
       replace <MongoDBURL> with the database link eg "mongodb+srv://xxxxxxx:xxxxxxxx@cluster0.itedlkj.mongodb.net/adworkDB?retryWrites=true&w=majority"
+	
       replace <Port> with a port number to run th server on eg : 9000
      
       Time to Roll!!!
-      run node server.js 
-      and it consoles "DB connected Successfully" if all things went correctly
+	
+    		run node server.js 
+	
+      If consoles "DB connected Successfully" all things went correctly.
   3) for the frontend:
       run the commands
+	
           cd adworks-frontend/
           npm i
+	
       Now create another .env file in this folder
       Add the following lines of code
+	
           REACT_APP_SERVER_URL=<your server url>
           
-          replace <your server url> with the actual server url eg: "http://localhost:9000"
-      run npm start 
+     replace <your server url> with the actual server url eg: "http://localhost:9000"
+	
+      	   run npm start 
+	
