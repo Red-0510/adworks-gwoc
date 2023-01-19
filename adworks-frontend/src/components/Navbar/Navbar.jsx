@@ -29,7 +29,7 @@ import { useSelector, useDispatch } from "react-redux";
 // redux
 import { setMode } from "state/store";
 
-import MyFlexPaper from "components/MyFlexPaper/MyFlexPaper";
+// import MyFlexPaper from "components/MyFlexPaper/MyFlexPaper";
 import Login from "scenes/Login/Login";
 import MyButton from "components/MyButton/MyButton";
 import { menuList } from "components/Sidebar/Sidebar";
@@ -158,8 +158,8 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               transformOrigin={{ horizontal: "right", vertical: "top" }}
               anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
-              <MenuItem>
-                <AccountCircleOutlined /> Profile
+              <MenuItem  onClick={()=>navigate("/profile")}>
+                <AccountCircleOutlined/> Profile
               </MenuItem>
               <MenuItem>
                 <DashboardOutlined /> Dashboard

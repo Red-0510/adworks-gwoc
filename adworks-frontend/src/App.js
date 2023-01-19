@@ -1,25 +1,25 @@
-import React, { useState, useMemo, useEffect } from "react"
-import { BrowserRouter, Routes,Route, Navigate} from "react-router-dom";
+import React, { useMemo } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { createTheme } from "@mui/material/styles";
-import { CssBaseline, ThemeProvider, useMediaQuery } from "@mui/material";
+import { CssBaseline, ThemeProvider } from "@mui/material";
 import { themeSettings } from "theme";
 //redux
-import {useSelector} from "react-redux";
+import { useSelector } from "react-redux";
 import Layout from "scenes/Layout/Layout";
 // import SignIn from "scenes/SignIn/SignIn";
-import SignUp from "scenes/SignIn/SignUp";
+// import SignUp from "scenes/SignIn/SignUp";
 import Home from "scenes/Home/Home";
 import Contact from "scenes/Contact/Contact";
-import './App.css';
+import "./App.css";
 import Services from "scenes/Services/Services";
 import Team from "scenes/ourTeam/ourTeam";
 import OurWork from "scenes/OurWork/OurWork";
- 
+import Profile from "scenes/Profile/Profile";
+import Form from "scenes/Dashboard/components/Form";
 
 function App() {
-
-  const mode = useSelector((state)=>state.global.mode);
-  const theme = useMemo(()=>createTheme(themeSettings(mode)),[mode]);
+  const mode = useSelector((state) => state.global.mode);
+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);
   // const buttonColorChange = document.querySelectorAll("Button");
   // if (theme.palette.mode === "dark") {
   //   // $("buttonColorChange").css("color","black")
@@ -31,7 +31,7 @@ function App() {
       <BrowserRouter>
         <ThemeProvider theme={theme}>
           <CssBaseline />
-          <div className="app_background" style={{backgroundColor:theme.palette.background.default}}></div>
+          {/* <div className="app_background" style={{backgroundColor:theme.palette.background.default}}></div> */}
           <Routes>
             <Route element={<Layout/>}>
               <Route path="/" element={<Navigate to="/home" />} />
@@ -42,8 +42,10 @@ function App() {
               <Route path="/our-team" element={<Team />}/>
               <Route path="/contact" element={<Contact />}/>
             </Route>
+            <Route path="/profile" element={<Profile />}/>
             {/* <Route path="/login" element={<SignIn />}/> */}
-            <Route path="/signup" element={<SignUp />}/>
+            {/* <Route path="/signup" element={<SignUp />} /> */}
+            <Route path="/add-product" element={<Form />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
