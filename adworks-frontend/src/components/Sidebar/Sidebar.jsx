@@ -29,8 +29,7 @@ import Login from 'scenes/Login/Login';
 import "./Sidebar.css";
 import _ from "lodash";
 import MyFlexPaper from 'components/MyFlexPaper/MyFlexPaper';
-import DashBoard from 'components/DashBoard/DashBoard';
-import { themeDark } from 'theme';
+// import DashBoard from 'components/DashBoard/DashBoard';
 // import CurrencyRupeeOutlinedIcon from '@mui/icons-material/CurrencyRupeeOutlined';
 
 const menuList=[

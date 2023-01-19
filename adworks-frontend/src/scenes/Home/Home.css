@@ -9,7 +9,7 @@
 
 .home_landing {
   height: 60vh;
-  width: 80vw;
+  width: 100vw;
   margin: 0 auto;
 }
 
@@ -28,8 +28,12 @@
   background: -webkit-linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
   background: -o-linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
   background: -moz-linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
+<<<<<<< HEAD
+  background: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%); */
+=======
   background: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
   background: linear-gradient(0deg, #ba54f5 0%, #e14eca 100%);
+>>>>>>> 0f26ce3e82d9462b2688ef366a750639ac50a70a
   background: rgb(68,0,97);
 background: -moz-linear-gradient(133deg, rgba(68,0,97,1) 0%, rgba(105,19,166,1) 38%, rgba(180,53,204,1) 100%);
 background: -webkit-linear-gradient(133deg, rgba(68,0,97,1) 0%, rgba(105,19,166,1) 38%, rgba(180,53,204,1) 100%);
