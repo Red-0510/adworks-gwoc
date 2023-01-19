@@ -1,14 +1,26 @@
 import { Button, FormControl, TextField, Typography } from "@mui/material";
-import React from "react";
+import React, { useState } from "react";
 // import MyFlexPaper from 'components/MyFlexPaper/MyFlexPaper';
 import { Paper } from "@mui/material";
 
 import "./Contact.css";
 import "./../Home/Home.css";
 import { useTheme } from "@emotion/react";
+import { useSendEmailMutation } from "state/api";
 
 const Contact = () => {
   const theme = useTheme();
+  const [sendEmail, { data, error, isSuccess, isError }] = useSendEmailMutation();
+  const [name, setName] = useState();
+  const [email, setEmail] = useState();
+  const [subject, setSubject] = useState();
+  const [message, setMessage] = useState();
+  function handleImage() {
+    sendEmail({ name,email,subject,message
+
+    })
+  }
+
   return (
     <div className="contact">
       <div className="square1 move"></div>
@@ -36,7 +48,7 @@ const Contact = () => {
             backgroundColor: theme.palette.mode === "dark" ? theme.palette.primary[100] : theme.palette.primary[400],
           }}
         >
-          <FormControl className="contact_formControl">
+          <FormControl className="contact_formControl" action="/send" method="post" >
             <div className="contact_container">
               <div className="form_container">
                 <TextField
@@ -45,6 +57,7 @@ const Contact = () => {
                   type="text"
                   variant="outlined"
                   margin="dense"
+                  onChange={(e)=>{setName(e.target.value)}}
                 />
                 <TextField
                   className="contacts contact_item2"
@@ -52,6 +65,7 @@ const Contact = () => {
                   type="email"
                   variant="outlined"
                   margin="dense"
+                  onChange={(e) => { setEmail(e.target.value) }}
                 />
                 {/* <TextField className='item3' label="Product Name" type="text" variant='outlined' margin="dense"/> */}
               </div>
@@ -63,6 +77,7 @@ const Contact = () => {
                   type="text"
                   variant="outlined"
                   margin="dense"
+                  onChange={(e)=>{setSubject(e.target.value)}}
                 />
               </div>
               <div className="form_container">
@@ -73,6 +88,7 @@ const Contact = () => {
                   cols={15}
                   multiline
                   margin="dense"
+                  onChange={(e)=>{setMessage(e.target.value)}}
                 />
               </div>
               <div>
@@ -85,6 +101,7 @@ const Contact = () => {
                     height: "50px",
                     fontSize: "medium"
                   }}
+                  onClick={handleImage}
                 >
                   Send
                 </Button>

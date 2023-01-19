@@ -1,14 +1,5 @@
-<<<<<<< HEAD
 import React, { useEffect,useMemo,useState } from "react";
 import Carousell from "./Carousell";
-// import profile2 from "assets/images/KA-Laptop-NEW-1.jpg"
-// import profile3 from "assets/images/elevate-cards.webp"
-=======
-
-import React, { useEffect,useMemo,useState } from "react";
-import Carousell from "./Carousell";
-
->>>>>>> 0f26ce3e82d9462b2688ef366a750639ac50a70a
 import "./Home.css";
 
 const Home = () => {

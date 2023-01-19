@@ -5,7 +5,8 @@ const themeDark={
       light:"#f0f6fc",
       100: "#ffffff",
       200: "#f0f6fc", 
-      300: "#f0f0f0",  // manually adjusted
+        300: "#f0f0f0",
+      400:"#ffffff"  // manually adjusted
     },
     primary: {
         // Dark Blue
@@ -44,7 +45,8 @@ const themeLight = {
       light:"#f0f6fc",
       300: "#ffffff",
       200: "#f0f6fc", 
-      100: "#f0f0f0",  // manually adjusted
+        100: "#f0f0f0",
+      400:"#ffffff"  // manually adjusted
     },
     primary: {
         // Light Blue
