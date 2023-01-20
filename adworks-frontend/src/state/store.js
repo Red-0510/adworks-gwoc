@@ -10,7 +10,6 @@ const initialState={
     //     email:"hello@mail.com",
     //     profile:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg",
     // },
-    isMobile:true,
 };
 
 const globalSlice = createSlice({
@@ -21,9 +20,9 @@ const globalSlice = createSlice({
             state.mode = (state.mode==="dark") ? "light" :"dark";
         },
         setUser : (state,data)=>{
-            console.log(data);
+            console.log(data,"hello inside");
             state.user=data.payload.data;
-            console.log(state.user);
+            console.log(state.user,"updated");
         },
         setDevice : (state)=>{
             state.isMobile =(!state.isMobile)

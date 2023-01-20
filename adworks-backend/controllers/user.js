@@ -1,46 +1,47 @@
 import User from "../models/User.js";
 import Product from "../models/Product.js";
 import Uploader from "../middlewares/uploader.js";
-const user={
-    username:"Jainesh",
-    email:'dummy@gmail.com',
-    image:"",
-}
+
 const loginUser = async (req,res)=>{
     // login function
-    res.status(200).json(user);
-
-    // User.find({email:req.email},(err,user)=>{
-    //     if(err) console.log(err);
-    //     else if(user.length>0){
-    //         if(req.body.password===user.password) res.status(201).json(user);
-    //     }
-    //     res.status(402).send("Wrong Credentials");
-    // });
+    User.findOne({email:req.body.email},(err,user)=>{
+        console.log(user);
+        if(err) console.log(err);
+        else if(user){
+            console.log(user);
+            if(req.body.password===user.password) {
+                res.status(201).json(user);
+                return;
+            }
+        }
+        res.status(402).send("Wrong Credentials");
+    });
 }
 
 const signUpUser = async (req,res)=>{
     // sign up function
-    console.log(req.body);
-    res.status(201).json(user);
-    // Uploader(req,res,(err)=>{
-    //     if(err) console.log(err);
-    //     else{
-    //         console.log(req.body);
-    //         const newUser=new User.create({
-    //             username:req.body.username,
-    //             email:req.body.email,
-    //             password:req.body.password,
-    //             image:{
-    //                 data:req.file.filename,
-    //                 contentType:'image/png',
-    //             }
-    //         });
-    //         newUser.save()
-    //         .then((user)=>res.status(201).json(user))
-    //         .catch((err)=>console.log(err))
-    //     }
-    // });
+    console.log(req.body,req.file);
+    // res.status(201).json(user);
+    Uploader(req,res,(err)=>{
+        if(err) console.log(err);
+        else{
+            const newUser = new User({
+                username:req.body.username,
+                email:req.body.email,
+                password:req.body.password,
+                image:{
+                    data:req.file.filename,
+                    contentType:'image/png',
+                }
+            });
+            newUser.save()
+                .then((user)=>res.status(201).json(user))
+                .catch((err)=>{
+                    console.log(err);
+                    res.status(401).json(err)   
+                })
+        }
+    });
 }
 
 const uploadProduct = (req,res)=>{
@@ -67,7 +68,7 @@ const getProducts=async (req,res)=>{
     Product.find({},(err,data)=>{
         if(err) console.log(err);
         else {
-            res.status(200).send(data);
+            res.status(200).json(data);
         }
     });
 };

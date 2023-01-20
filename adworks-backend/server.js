@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import Cors from "cors";
 import bodyParser from "body-parser";
+import multer from "multer";
 // import helmet from "helmet";
 // import morgan from "morgan";
 import dotenv from "dotenv";
@@ -17,7 +18,8 @@ const connection_url = CONNECTION_URL;
 //Middleware
 app.use(express.json());
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({extended:true}));
+// app.use(multer().array());
 app.use(Cors());
 
 

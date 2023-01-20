@@ -7,20 +7,10 @@ const api=createApi({
     endpoints :(build)=>({
         login :build.mutation({
             query: (body)=>{
-                // console.log(body,"hello");
-                if(body.signup===true){
-                    return {
-                        url:"/user/signup",
-                        method:"post",
-                        body,
-                    }
-                }
-                else{
-                    return {
-                        url:"/user/login",
-                        method:"post",
-                        body,
-                    }
+                return {
+                    url:"/user/login",
+                    method:"post",
+                    body,
                 }
             },
             invalidatesTags:[{type:"USER"}]
@@ -47,18 +37,8 @@ const api=createApi({
             },
             invalidatesTags:[{type:"EMAIL"}]
         }),
-        sendEmail : build.mutation({
-            query:(body)=>{
-                return { 
-                    url:"/contact/email",
-                    method:"post",
-                    body,
-                }
-            },
-            invalidatesTags:[{type:"EMAIL"}],
-        }),
     })
 });
 
-const {useLoginMutation} = api;
-export {api,useLoginMutation};
+const {useLoginMutation,useSignUpMutation} = api;
+export {api,useLoginMutation,useSignUpMutation};

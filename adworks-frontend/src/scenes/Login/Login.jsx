@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import ZoomDialog from "components/ZoomDialog/ZoomDialog";
-import { useLoginMutation } from "state/api";
+import { useLoginMutation,useSignUpMutation } from "state/api";
 import { setUser } from "state/store";
 import { useDispatch, useSelector } from "react-redux";
 import "./Login.css";
@@ -20,11 +20,12 @@ import {
   VpnKeyOutlined,
 } from "@mui/icons-material";
 import { useTheme } from "@emotion/react";
+
 const Login = ({ open, setOpen, register }) => {
   const [login, { data, error, isSuccess, isError }] = useLoginMutation();
+  const [signUp, {isSignUpLoading}] = useSignUpMutation();
   const dispatch = useDispatch();
   const theme = useTheme();
-
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -32,24 +33,29 @@ const Login = ({ open, setOpen, register }) => {
   const [image, setImage] = useState(null);
 
   function handleLogin() {
-    if (register && password === confirmPassword) {
-      console.log(username, email, password);
-      login({
-        signup:true,
-        username,
-        email,
-        password,
-        image,
-      })
-        .then((data) => {
-          console.log(data);
-          dispatch(setUser(data));
-        })
-        .catch((err) => console.log(err.message));
+    if (register) {
+      if(password===confirmPassword){
+        console.log(username, email, password);
+        const userData=new FormData();
+        userData.append("uploadImage",image);
+        userData.append("username",username);
+        userData.append("email",email);
+        userData.append("password",password);
+
+        signUp(userData).unwrap()
+          .then((data) => {
+            console.log(data);
+            dispatch(setUser(data));
+            // console.log(user,"Signed Up");
+          })
+          .catch((err) => console.log(err.message));
+      }
+      else{
+        alert("Passwords dont match");
+      }
     } else {
       console.log(email, password);
       login({
-        username,
         email,
         password,
         // image,
