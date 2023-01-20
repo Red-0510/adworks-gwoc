@@ -2,23 +2,26 @@ import { Paper } from '@mui/material';
 import React, { useState } from 'react'
 import { useSelector } from 'react-redux';
 import "./Dashboard.css"
+// import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import prof from "assets/images/profile.png"
 import Dashtemp from './Dashtemp';
-import { map } from 'lodash';
+// import { map } from 'lodash';
 import MyButton from 'components/MyButton/MyButton';
+import { Product } from './products';
 const Dashboard = () => {
   // const products=[];
   
-  
+  const navigate = useNavigate();
   const user = useSelector(state=>state.global.user);
-  const [products,setproducts]=useState([]);
+  // const [products,setproducts]=useState([]);
   if(!user) return <div></div>
   else {
-    function fun(e){
-      return(
-        <Dashtemp image={e.image} title={e.title} />
-      )
-    }
+    // function fun(e){
+    //   return(
+    //     <Dashtemp image={e.image} title={e.title} />
+    //   )
+    // }
     return (
         <div className='dashboard'>
         <div className='admin-data'>
@@ -33,17 +36,11 @@ const Dashboard = () => {
         <br/>
         <div className='extradivadded'>
         <div className='products-dash'>
-           {/* {map.products(fun(e))} */}
-           <Dashtemp />
-           <Dashtemp />
-           <Dashtemp />
-           <Dashtemp />
-           <Dashtemp />
-           <Dashtemp />
-           <Dashtemp />
+           {Product.map((e)=>{return(<Dashtemp title={e.Title} img={e.img} des={e.description}/>)})}
+
         </div>
         </div>
-        <div className='additembutton'><MyButton >+ Products</MyButton></div>
+        <div className='additembutton'><MyButton onClick={() => navigate("/add")} >+ Products</MyButton></div>
         </div>
     );
   };
