@@ -29,7 +29,7 @@ import {
 } from "@mui/icons-material";
 import { useSelector, useDispatch } from "react-redux";
 // redux
-import { setMode } from "state/store";
+import { setMode, setUser } from "state/store";
 
 // import MyFlexPaper from "components/MyFlexPaper/MyFlexPaper";
 import Login from "scenes/Login/Login";
@@ -56,6 +56,12 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
   const [active, setActive] = useState(url.pathname.substring(1));
   const [loginOpen, setLoginOpen] = useState(false);
   const [registerOpen, setRegisterOpen] = useState(false);
+
+  function handleLogout(){
+    dispatch(setUser(null));
+    navigate("/");
+  }
+
   return (
     <div className="navbar">
       {isMobile && (
@@ -124,7 +130,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 else setAnchorEl(e.currentTarget);
               }}
             >
-              <Avatar src={user.profile} />
+              <Avatar src={user ? `data:image/png;base64,${user.image}` : ""} />
               {open ? <ArrowDropUpRounded /> : <ArrowDropDownRounded />}
             </IconButton>
             <Menu
@@ -180,7 +186,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 </IconButton>
               </MenuItem>
               <MenuItem>
-                <IconButton>
+                <IconButton onClick={handleLogout}>
                   <LogoutOutlined /> Logout
                 </IconButton>
               </MenuItem>

@@ -1,6 +1,31 @@
 import User from "../models/User.js";
 import Product from "../models/Product.js";
 import Uploader from "../middlewares/uploader.js";
+import fs from "fs";
+import { Buffer } from "buffer";
+
+function sendUserData(user){
+    const base64=Buffer.from(user.image.data).toString("base64");
+    return {
+        username:user.username,
+        image:base64,
+        email:user.email,
+        _id:user._id,
+    }
+}
+
+function sendProductData(data){
+    const products=[];
+    data.forEach(p => {
+        products.push({
+            name:p.name,
+            owner:p.owner,
+            image:Buffer(p.image.data).toString("base64"),
+            description:p.description,
+        });
+    });
+    return products;
+}
 
 const loginUser = async (req,res)=>{
     // login function
@@ -10,7 +35,7 @@ const loginUser = async (req,res)=>{
         else if(user){
             console.log(user);
             if(req.body.password===user.password) {
-                res.status(201).json(user);
+                res.status(201).json(sendUserData(user));
                 return;
             }
         }
@@ -30,12 +55,15 @@ const signUpUser = async (req,res)=>{
                 email:req.body.email,
                 password:req.body.password,
                 image:{
-                    data:req.file.filename,
+                    data:fs.readFileSync("data/" + req.file.filename),
                     contentType:'image/png',
                 }
             });
             newUser.save()
-                .then((user)=>res.status(201).json(user))
+                .then((user)=>{
+                    console.log(user);
+                    res.status(201).json(sendUserData(user));
+                })
                 .catch((err)=>{
                     console.log(err);
                     res.status(401).json(err)   
@@ -51,29 +79,33 @@ const uploadProduct = (req,res)=>{
         else{
             const newProduct = Product({
                 name:req.body.name,
+                owner:req.body.owner,
+                description:req.body.description,
                 image:{
-                    data:req.file.filename,
+                    data:fs.readFileSync("data/" + req.file.filename),
                     contentType:'image/png',
                 }
             });
-            newProduct.save((err,data)=>{
-                console.log(data);
-                if(err) console.log(err);
-                res.status(201).send("upload succesfull");
-            })
+            newProduct.save()
+                .then((data)=>{
+                    console.log(data);
+                    res.status(201).json("Succesfully Uploaded");
+                })
+                .catch(err=>console.log(err))
         }
     });
 };
 
 const getProducts=async (req,res)=>{
     console.log("Calling to get all products");
-    console.log(req.params.id);
+    const id=req.params.id;
     // const data=await Product.find({})
     // console.log(data);
     // res.status(200).json(data);
-    Product.find({},(err,data)=>{
-        if(err) res.status(401).json(err);
-        else res.status(200).json(data);
+    Product.find({owner:id},(err,data)=>{
+        if(err) res.status(401).send(err);
+        else if(data) res.status(200).json(sendProductData(data));
+        else res.status(201).send("")
     })
 };
 

@@ -23,8 +23,6 @@ const Dashboard = () => {
 
   // },[products]);
   console.log(user._id);
-  const str=user.image.data.data.toString("base64");
-  console.log(str);
   const [cards, setCards] = useState([]);
   const {data,isSuccess} = useGetProductQuery(user._id);
 
@@ -33,7 +31,7 @@ const Dashboard = () => {
     setCards(data);
   },[isSuccess]);
 
-  // if(isSuccess){
+  if(isSuccess){
     return (
       <div className="dashboard">
           <div className="admin-data">
@@ -49,15 +47,14 @@ const Dashboard = () => {
           <div className="extradivadded">
             <div className="products-dash">
               {cards && cards.map((card) => {
-                const base64String = card.image.data.data.toString("base64String");
-                console.log(base64String);
+                // const base64String = Buffer.from(card.image.data.data).toString("base64");
                 return (
-                  <img src={`data:image/png;base64,${base64String}`} alt="hello"/>
-                  // <Dashtemp
-                  //   title={card.name}
-                  //   img={`url(data:image/png;base64,${base64String})`}
-                  //   des={"this is description"}
-                  // />
+                  // <img src={`data:image/png;base64,${base64String}`} alt="hello"/>
+                  <Dashtemp
+                    title={card.name}
+                    img={`data:image/png;base64,${card.image}`}
+                    des={"this is description"}
+                  />
                 );
               })}
             </div>
@@ -67,7 +64,10 @@ const Dashboard = () => {
           </div>
         </div>
     );
-  // }
+  }
+  else{
+    return <div className="dashboard_loading"> Loading....Grab a cup of coffee until</div>
+  }
 };
 
 export default Dashboard;

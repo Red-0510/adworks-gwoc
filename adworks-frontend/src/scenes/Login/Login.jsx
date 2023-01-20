@@ -8,7 +8,7 @@ import {
   Typography,
 } from "@mui/material";
 import ZoomDialog from "components/ZoomDialog/ZoomDialog";
-import { useLoginMutation,useSignUpMutation } from "state/api";
+import { useLoginMutation, useSignUpMutation } from "state/api";
 import { setUser } from "state/store";
 import { useDispatch, useSelector } from "react-redux";
 import "./Login.css";
@@ -23,7 +23,7 @@ import { useTheme } from "@emotion/react";
 
 const Login = ({ open, setOpen, register }) => {
   const [login, { data, error, isSuccess, isError }] = useLoginMutation();
-  const [signUp, {isSignUpLoading}] = useSignUpMutation();
+  const [signUp, { isSignUpLoading }] = useSignUpMutation();
   const dispatch = useDispatch();
   const theme = useTheme();
   const [username, setUsername] = useState("");
@@ -34,23 +34,23 @@ const Login = ({ open, setOpen, register }) => {
 
   function handleLogin() {
     if (register) {
-      if(password===confirmPassword){
+      if (password === confirmPassword) {
         console.log(username, email, password);
-        const userData=new FormData();
-        userData.append("uploadImage",image);
-        userData.append("username",username);
-        userData.append("email",email);
-        userData.append("password",password);
+        const userData = new FormData();
+        userData.append("uploadImage", image);
+        userData.append("username", username);
+        userData.append("email", email);
+        userData.append("password", password);
 
-        signUp(userData).unwrap()
+        signUp(userData)
+          .unwrap()
           .then((data) => {
             console.log(data);
-            dispatch(setUser(data.payload));
+            dispatch(setUser(data));
             // console.log(user,"Signed Up");
           })
           .catch((err) => console.log(err.message));
-      }
-      else{
+      } else {
         alert("Passwords dont match");
       }
     } else {
@@ -152,7 +152,7 @@ const Login = ({ open, setOpen, register }) => {
                   if (e.target.files[0]) {
                     console.log(e.target.files);
                     setImage(e.target.files[0]);
-                  };
+                  }
                 }}
                 sx={{
                   width: "55%",

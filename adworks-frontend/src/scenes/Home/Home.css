@@ -38,7 +38,7 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#440061",endCo
   position: fixed;
   transition: 0.5s ease-out;
   overflow: hidden;
-  border-radius: 50%;
+  border-radius: 35%;
 }
 
 .square1{

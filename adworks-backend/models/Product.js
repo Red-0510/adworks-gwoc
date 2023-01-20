@@ -12,6 +12,9 @@ const ProductSchema =new mongoose.Schema({
     owner:{
         type:"ObjectId",
         ref:"User",
+    },
+    description:{
+        type:String,
     }
 },{
     timestamps:true,

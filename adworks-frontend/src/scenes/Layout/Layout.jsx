@@ -18,7 +18,7 @@ const Layout = (props) => {
           setIsSidebarOpen={setIsSidebarOpen}
         />
         <Outlet />
-        <Footer />
+        {/* <Footer /> */}
       </div>
       {isMobile && (
         <Sidebar

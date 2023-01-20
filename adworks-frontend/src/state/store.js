@@ -22,7 +22,8 @@ const globalSlice = createSlice({
         },
         setUser : (state,data)=>{
             console.log(data,"hello inside");
-            state.user=data.payload.data;
+            if(data.payload) state.user=data.payload.data;
+            else state.user=null;
             console.log(state.user,"updated");
         },
         setDevice : (state)=>{
