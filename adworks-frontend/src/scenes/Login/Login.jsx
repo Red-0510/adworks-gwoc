@@ -43,11 +43,10 @@ const Login = ({ open, setOpen, register }) => {
         userData.append("password", password);
 
         signUp(userData)
-          .unwrap()
           .then((data) => {
             console.log(data);
             dispatch(setUser(data));
-            // console.log(user,"Signed Up");
+            console.log("Signed Up");
           })
           .catch((err) => console.log(err.message));
       } else {

@@ -23,26 +23,6 @@ app.use(bodyParser.urlencoded({extended:true}));
 // app.use(multer().array());
 app.use(Cors());
 
-// const storage=multer.diskStorage({
-//     destination:(req,file,cb)=>{
-//         cb(null,'uploads')
-//     },
-//     filename: (req,file,cb)=>{
-//         cb(null,file.originalname);
-//     }
-// });
-
-// const upload = multer({storage:storage});
-
-// app.post("/product",upload.single('img'),(req,res)=>{
-//     const newProduct = new Product({
-//         name:req.body.name,
-//         image:{
-//             data:req.file.fil
-//         }
-//     })
-// })
-
 //settings roue controller;
 app.use("/user",userRoutes);
 //DB Config
@@ -52,6 +32,6 @@ mongoose.connect(connection_url, {
     useUnifiedTopology:true,
     })
     .then(()=>{
-        app.listen(port,()=>console.log(`Server is listening on port:${port} and DB connecetd`));
+        app.listen(port,"192.168.0.3",()=>console.log(`Server is listening on port:${port} and DB connecetd`));
     })
     .catch(err=>console.log(`${err} did not conect DB`))
