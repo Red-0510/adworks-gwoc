@@ -11,14 +11,14 @@ const Dashboard = () => {
   
   
   const user = useSelector(state=>state.global.user);
+  const [products,setproducts]=useState([]);
   if(!user) return <div></div>
   else {
-    // const [products,setproducts]=useState([{}]);
-    // function fun(e){
-    //   return(
-    //     <Dashtemp image={e.image} title={e.title}
-    //   );
-    // }
+    function fun(e){
+      return(
+        <Dashtemp image={e.image} title={e.title} />
+      )
+    }
     return (
         <div className='dashboard'>
         <div className='admin-data'>
