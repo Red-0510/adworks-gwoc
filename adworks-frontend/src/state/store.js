@@ -10,7 +10,7 @@ const initialState={
     //     email:"hello@mail.com",
     //     profile:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg",
     // },
-    isMobile:true,
+    isMobile:false,
 };
 
 const globalSlice = createSlice({

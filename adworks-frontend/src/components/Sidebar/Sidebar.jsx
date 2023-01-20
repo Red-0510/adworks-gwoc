@@ -128,13 +128,13 @@ const Sidebar = ({isSidebarOpen,setIsSidebarOpen}) => {
                             setLoginOpen(true);
                             setRegister(false);
                           }}
-                          sx={{borderRadius:"10px"}}>Login</MyButton>
+                          sx={{borderRadius:"10px"}}>SignIn</MyButton>
                         <MyButton size="large"  
                           onClick={()=>{
                             setLoginOpen(true);
                             setRegister(true);
                           }}
-                          sx={{borderRadius:"10px"}}>Register</MyButton>
+                          sx={{borderRadius:"10px"}}>signUp</MyButton>
                         <div>
                           <Login open={loginOpen} setOpen={setLoginOpen} register={register}/>
                         </div>
