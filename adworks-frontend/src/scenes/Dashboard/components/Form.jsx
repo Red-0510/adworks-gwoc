@@ -19,8 +19,8 @@ function Form() {
                             <TextField type="file" />
                         </div>
                         <div className='form_content'>
-                            <label>Discription</label>
-                            <TextField type="text" multiline label="Discription" />
+                            <label>Description</label>
+                            <TextField type="text" multiline label="Description" />
                         </div>
                     </div>
                     <div className='form_button'>
