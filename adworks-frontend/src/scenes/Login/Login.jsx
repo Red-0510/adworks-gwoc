@@ -45,7 +45,7 @@ const Login = ({ open, setOpen, register }) => {
         signUp(userData).unwrap()
           .then((data) => {
             console.log(data);
-            dispatch(setUser(data));
+            dispatch(setUser(data.payload));
             // console.log(user,"Signed Up");
           })
           .catch((err) => console.log(err.message));
@@ -149,7 +149,10 @@ const Login = ({ open, setOpen, register }) => {
                 type="file"
                 margin="dense"
                 onChange={(e) => {
-                  if (e.target.files[0]) setImage(e.target.files[0]);
+                  if (e.target.files[0]) {
+                    console.log(e.target.files);
+                    setImage(e.target.files[0]);
+                  };
                 }}
                 sx={{
                   width: "55%",

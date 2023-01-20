@@ -1,7 +1,7 @@
 import {createApi, fetchBaseQuery} from "@reduxjs/toolkit/query/react";
 
 const api=createApi({
-    baseQuery:fetchBaseQuery({baseUrl:"http://localhost:9001"}),
+    baseQuery:fetchBaseQuery({baseUrl:process.env.REACT_APP_SERVER_URL}),
     reducerPath:"api",
     tagTypes:["USER","EMAIL","EMAIL"],
     endpoints :(build)=>({
@@ -26,19 +26,12 @@ const api=createApi({
             },
             invalidatesTags:[{type:"USER"}]
         }),
-        sendEmail :build.mutation({
-            query: (body)=>{
-                // console.log(body,"hello");
-                return {
-                    url:"/contact/email",
-                    method:"post",
-                    body,
-                }
-            },
-            invalidatesTags:[{type:"EMAIL"}]
+        getProduct : build.query({
+            query: (id) => `/user/products/${id}`,
+            providesTags:["USER"],
         }),
     })
 });
 
-const {useLoginMutation,useSignUpMutation} = api;
-export {api,useLoginMutation,useSignUpMutation};
+const {useLoginMutation,useSignUpMutation,useGetProductQuery} = api;
+export {api,useLoginMutation,useSignUpMutation,useGetProductQuery};

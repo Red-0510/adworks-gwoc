@@ -11,8 +11,8 @@ import User from "./models/User.js";
 dotenv.config();
 //App Config
 const app = express()
-const port = process.env.PORT || 9001
-const CONNECTION_URL="mongodb+srv://admin:admin@cluster0.itedlkj.mongodb.net/adworkDB?retryWrites=true&w=majority"
+const port = process.env.PORT || 9000
+const CONNECTION_URL=process.env.CONNECTION_URL;
 const connection_url = CONNECTION_URL;
 //Middleware
 app.use(express.json());

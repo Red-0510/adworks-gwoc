@@ -49,28 +49,32 @@ const uploadProduct = (req,res)=>{
     Uploader(req,res,(err)=>{
         if(err) console.log(err);
         else{
-            const newProduct = new Product({
+            const newProduct = Product({
                 name:req.body.name,
                 image:{
                     data:req.file.filename,
                     contentType:'image/png',
                 }
             });
-            newProduct.save()
-                .then(()=>res.status(201).send("uploaded successfully"))
-                .catch((err)=>console.log(err))
+            newProduct.save((err,data)=>{
+                console.log(data);
+                if(err) console.log(err);
+                res.status(201).send("upload succesfull");
+            })
         }
     });
 };
 
 const getProducts=async (req,res)=>{
     console.log("Calling to get all products");
+    console.log(req.params.id);
+    // const data=await Product.find({})
+    // console.log(data);
+    // res.status(200).json(data);
     Product.find({},(err,data)=>{
-        if(err) console.log(err);
-        else {
-            res.status(200).json(data);
-        }
-    });
+        if(err) res.status(401).json(err);
+        else res.status(200).json(data);
+    })
 };
 
 export {loginUser,signUpUser,uploadProduct,getProducts};
