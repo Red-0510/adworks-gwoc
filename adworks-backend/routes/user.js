@@ -3,7 +3,7 @@ import { loginUser,signUpUser, uploadProduct,getProducts } from "../controllers/
 
 const router = express.Router();
 
-router.get("/products",getProducts);
+router.get("/products/:id",getProducts);
 
 router.post("/login",loginUser);
 router.post("/signup",signUpUser);

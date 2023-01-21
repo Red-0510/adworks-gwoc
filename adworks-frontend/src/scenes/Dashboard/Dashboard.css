@@ -52,3 +52,12 @@
     justify-content: center;
 
 }
+
+
+.dashboard_loading{
+    text-align: center;
+    color:black;
+    font-size: 5rem;
+    font-weight: bold;
+    margin:12rem 5rem;
+}
