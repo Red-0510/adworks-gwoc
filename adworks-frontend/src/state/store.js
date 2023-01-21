@@ -4,13 +4,13 @@ import {api} from "state/api";
 
 const initialState={
     mode:"dark",
-    // user:null,
-    user:{
-        username:"jainesh",
-        email:"hello@mail.com",
-        profile:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg",
-    },
-    isMobile:true,
+    user:null,
+    // user:{
+    //     username:"jainesh",
+    //     email:"hello@mail.com",
+    //     _id:"63ca584f84c33d63f9f60aeb",
+    //     profile:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Shaqi_jrvej.jpg/1200px-Shaqi_jrvej.jpg",
+    // },
 };
 
 const globalSlice = createSlice({
@@ -21,9 +21,10 @@ const globalSlice = createSlice({
             state.mode = (state.mode==="dark") ? "light" :"dark";
         },
         setUser : (state,data)=>{
-            console.log(data);
-            state.user=data.payload.data;
-            console.log(state.user);
+            console.log(data,"hello inside");
+            if(data.payload) state.user=data.payload.data;
+            else state.user=null;
+            console.log(state.user,"updated");
         },
         setDevice : (state)=>{
             state.isMobile =(!state.isMobile)

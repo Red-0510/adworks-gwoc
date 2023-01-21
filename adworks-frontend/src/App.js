@@ -16,7 +16,7 @@ import Team from "scenes/ourTeam/ourTeam";
 import OurWork from "scenes/OurWork/OurWork";
 import  Dashboard  from "scenes/Dashboard/Dashboard";
 import Profile from "scenes/Profile/Profile";
-import Form from "scenes/Dashboard/components/Form";
+import Form from "scenes/Dashboard/components/Form.jsx";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -44,10 +44,10 @@ function App() {
               <Route path="/contact" element={<Contact />}/>
             <Route path="/dashboard" element={<Dashboard />}/>
             <Route path="/profile" element={<Profile />}/>
+            <Route path="/add" element={<Form />} />
             </Route>
             {/* <Route path="/login" element={<SignIn />}/> */}
             {/* <Route path="/signup" element={<SignUp />} /> */}
-            <Route path="/add-product" element={<Form />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
