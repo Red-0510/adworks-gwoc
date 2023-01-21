@@ -6,8 +6,8 @@ const ProductSchema =new mongoose.Schema({
         required:true,
     },
     image:{
-        data:Buffer,
-        contentType:String,
+        type:String,
+        default:"",
     },
     owner:{
         type:"ObjectId",

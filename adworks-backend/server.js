@@ -22,6 +22,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:true}));
 // app.use(multer().array());
 app.use(Cors());
+app.use(express.static('data'));
 
 //settings roue controller;
 app.use("/user",userRoutes);
@@ -32,6 +33,6 @@ mongoose.connect(connection_url, {
     useUnifiedTopology:true,
     })
     .then(()=>{
-        app.listen(port,"192.168.0.3",()=>console.log(`Server is listening on port:${port} and DB connecetd`));
+        app.listen(port,process.env.SERVER,()=>console.log(`Server is listening on port:${port} and DB connecetd`));
     })
     .catch(err=>console.log(`${err} did not conect DB`))

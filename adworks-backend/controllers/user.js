@@ -2,13 +2,11 @@ import User from "../models/User.js";
 import Product from "../models/Product.js";
 import Uploader from "../middlewares/uploader.js";
 import fs from "fs";
-import { Buffer } from "buffer";
 
 function sendUserData(user){
-    const base64=Buffer.from(user.image.data).toString("base64");
     return {
         username:user.username,
-        image:base64,
+        image:user.image,
         email:user.email,
         _id:user._id,
     }
@@ -20,7 +18,7 @@ function sendProductData(data){
         products.push({
             name:p.name,
             owner:p.owner,
-            image:Buffer(p.image.data).toString("base64"),
+            image:p.image,
             description:p.description,
         });
     });
@@ -54,10 +52,7 @@ const signUpUser = async (req,res)=>{
                 username:req.body.username,
                 email:req.body.email,
                 password:req.body.password,
-                image:{
-                    data:fs.readFileSync("data/" + req.file.filename),
-                    contentType:'image/png',
-                }
+                image:`${process.env.SERVER}:${process.env.PORT}/${req.file.filename}`,
             });
             newUser.save()
                 .then((user)=>{
@@ -77,14 +72,12 @@ const uploadProduct = (req,res)=>{
     Uploader(req,res,(err)=>{
         if(err) console.log(err);
         else{
+            console.log(req.file.filename);
             const newProduct = Product({
                 name:req.body.name,
                 owner:req.body.owner,
+                image:`http://${process.env.SERVER}:${process.env.PORT}/${req.file.filename}`,
                 description:req.body.description,
-                image:{
-                    data:fs.readFileSync("data/" + req.file.filename),
-                    contentType:'image/png',
-                }
             });
             newProduct.save()
                 .then((data)=>{
@@ -103,6 +96,7 @@ const getProducts=async (req,res)=>{
     // console.log(data);
     // res.status(200).json(data);
     Product.find({owner:id},(err,data)=>{
+        console.log(data,err);
         if(err) res.status(401).send(err);
         else if(data) res.status(200).json(sendProductData(data));
         else res.status(201).send("")

@@ -130,7 +130,7 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
                 else setAnchorEl(e.currentTarget);
               }}
             >
-              <Avatar src={user ? `data:image/png;base64,${user.image}` : ""} />
+              <Avatar src={user ? user.image : ""} />
               {open ? <ArrowDropUpRounded /> : <ArrowDropDownRounded />}
             </IconButton>
             <Menu
@@ -200,14 +200,14 @@ const Navbar = ({ isSidebarOpen, setIsSidebarOpen }) => {
               size="large"
               onClick={() => setLoginOpen(true)}
             >
-              Log In
+              Sign In
             </MyButton>
             <MyButton
               className="login"
               size="large"
               onClick={() => setRegisterOpen(true)}
             >
-              Register
+              Sign Up
             </MyButton>
             <div>
               <Login open={loginOpen} setOpen={setLoginOpen} />
