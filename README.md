@@ -36,7 +36,7 @@ Tech Stack: MERN
      
       Time to Roll!!!
 	
-    		run node server.js 
+    		node server.js 
 	
       If consoles "DB connected Successfully" all things went correctly.
   3) for the frontend:
@@ -52,5 +52,5 @@ Tech Stack: MERN
           
      replace <your server url> with the actual server url eg: "http://localhost:9000"
 	
-      	   run npm start 
+      	   npm start 
 	
