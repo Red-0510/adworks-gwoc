@@ -5,10 +5,10 @@ function Team() {
     <div className="responsive-container-block outer-container">
       <div className="responsive-container-block inner-container">
         <p className="text-blk section-head-text">
-          Meet Our Expert Instructors
+          Meet Our Experts
         </p>
         <p className="text-blk section-subhead-text">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit.&nbsp;
+          This are the experts of adworks on digital marketing and management. 
         </p>
         <div className="responsive-container-block">
           <div className="responsive-cell-block wk-desk-3 wk-ipadp-3 wk-tab-6 wk-mobile-12 team-card-container">

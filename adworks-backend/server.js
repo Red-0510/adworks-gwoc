@@ -11,7 +11,7 @@ import User from "./models/User.js";
 dotenv.config();
 //App Config
 const app = express()
-const port = process.env.PORT || 9001
+const port = process.env.PORT || 9000 
 const CONNECTION_URL="mongodb+srv://admin:admin@cluster0.itedlkj.mongodb.net/adworkDB?retryWrites=true&w=majority"
 const connection_url = CONNECTION_URL;
 //Middleware
@@ -43,6 +43,6 @@ mongoose.connect(connection_url, {
     useNewUrlParser: true,
     })
     .then(()=>{
-        app.listen(port,()=>console.log(`Server is listening on port:${port} and DB connecetd`));
+        app.listen(port,()=>console.log(`Server is listening on port:${port} and DB connected`));
     })
     .catch(err=>console.log(`${err} did not conect DB`))
