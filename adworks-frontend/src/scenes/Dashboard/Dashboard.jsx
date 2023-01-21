@@ -49,12 +49,13 @@ const Dashboard = () => {
               {cards && cards.map((card) => {
                 // const base64String = Buffer.from(card.image.data.data).toString("base64");
                 return (
-                  // <img src={`data:image/png;base64,${base64String}`} alt="hello"/>
+                  <div>
                   <Dashtemp
                     title={card.name}
-                    img={`data:image/png;base64,${card.image}`}
-                    des={"this is description"}
+                    img={card.image}
+                    des={card.description}
                   />
+                  </div>
                 );
               })}
             </div>
